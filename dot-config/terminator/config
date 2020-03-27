@@ -1,0 +1,105 @@
+[global_config]
+  broadcast_default = off
+  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  title_font = Font Awesome 5 Brands 13
+[keybindings]
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
+  group_all = <Primary><Alt>g
+  group_tab = <Primary><Alt>t
+  hide_window = None
+  insert_number = None
+  insert_padded = None
+  new_terminator = None
+  rotate_ccw = None
+  rotate_cw = None
+  ungroup_all = None
+  ungroup_tab = None
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 1c7ca2a9-39ba-48ed-a2d9-096ca6e494dc
+      last_active_window = False
+      maximised = False
+      order = 0
+      parent = ""
+      position = 6:35
+      size = 1909, 487
+      title = /bin/bash
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = OneDark
+      type = Terminal
+      uuid = 1c7ca2a9-39ba-48ed-a2d9-096ca6e494dc
+  [[dropDown]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 1c7ca2a9-39ba-48ed-a2d9-096ca6e494dc
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 6:35
+      size = 1909, 486
+      title = /bin/bash
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = dropDownOneDark
+      type = Terminal
+      uuid = 1c7ca2a9-39ba-48ed-a2d9-096ca6e494dc
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1e1e1e"
+    background_darkness = 0.49
+    cursor_color = "#aaaaaa"
+    foreground_color = "#f1eded"
+    palette = "#646464:#f58e8e:#a9d3ab:#fed37e:#7aabd4:#d6add5:#79d4d5:#d4d4d4:#646464:#f58e8e:#a9d3ab:#fed37e:#7aabd4:#d6add5:#79d4d5:#d4d4d4"
+  [[Material colors]]
+    background_color = "#1e282c"
+    background_darkness = 0.49
+    cursor_color = "#657B83"
+    foreground_color = "#c3c7d1"
+    palette = "#073641:#eb606b:#c3e88d:#f7eb95:#80cbc3:#ff2490:#aeddff:#ffffff:#002b36:#eb606b:#c3e88d:#f7eb95:#7dc6bf:#6c71c3:#34434d:#ffffff"
+  [[MaterialDark]]
+    background_color = "#232322"
+    background_darkness = 0.49
+    cursor_color = "#16afca"
+    foreground_color = "#e5e5e5"
+    palette = "#212121:#b7141f:#457b24:#f6981e:#134eb2:#560088:#0e717c:#efefef:#424242:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
+  [[One dark]]
+    cursor_color = "#aaaaaa"
+  [[OneDark]]
+    background_color = "#282c34"
+    background_darkness = 0.98
+    copy_on_selection = True
+    cursor_color = "#bbbbbb"
+    foreground_color = "#ceddf3"
+    icon_bell = False
+    palette = "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#fffefe"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[chalk]]
+    cursor_color = "#aaaaaa"
+  [[dropDownOneDark]]
+    background_color = "#282c34"
+    background_darkness = 0.84
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#bbbbbb"
+    foreground_color = "#ceddf3"
+    icon_bell = False
+    palette = "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#fffefe"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
