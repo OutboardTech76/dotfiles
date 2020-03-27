@@ -1,0 +1,346 @@
+##############################
+#      Display settings      #
+##############################
+
+# This line tells which monitor is on the left
+# eDP-1-1 -> laptop display
+# use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
+
+# Set laptop screen as primary
+exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-1 --left-of eDP-1-1 --auto
+#exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --left-of eDP-1-1 --auto
+
+
+###################
+#      Fonts      #
+###################
+# The first for symbols, the second for plain text
+font pango:FontAwesome 10, System San Francisco Display 10
+ 
+ 
+#######################
+#      Variables      #
+#######################
+ 
+set $mod Mod4
+# set position variables
+set $up k
+set $down j
+set $left h
+set $right l
+ 
+
+# Color configuration
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+set $blue-color          #5DA8F4
+
+# Monitors names
+set $firstMonitor DP-1-1
+set $secondMonitor eDP-1-1
+
+###################
+#      Modes      #
+###################
+
+#set $modeContainer Container: [s]tacking [t]abbed toggl[e] split
+#mode "$modeContainer" {
+    #bindsym s layout stacking; mode "default"
+    #bindsym t layout tabbed; mode "default"
+    #bindsym e layout toggle split; mode "default"
+
+    #bindsym Escape mode "default"
+    #bindsym $mod+c mode "default"
+#}
+# bindsym $mod+c mode "$modeContainer"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym $left resize shrink width 1 px or 1 ppt
+        bindsym $down resize grow height 1 px or 1 ppt
+        bindsym $up resize shrink height 1 px or 1 ppt
+        bindsym $right resize grow width 1 px or 1 ppt
+        # Resize more
+        bindsym Ctrl+$left resize shrink width 30 px or 30 ppt
+        bindsym Ctrl+$down resize grow height 30 px or 30 ppt
+        bindsym Ctrl+$up resize shrink height 30 px or 30 ppt
+        bindsym Ctrl+$right resize grow width 30 px or 30 ppt
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+ 
+# Press $mod+o followed by either f, t, s, Escape to launch firefox, thunderbird, sound drivers or return to the default mode
+set $modeLauncher Launch: [f]irefox [t]hunderbird [s]ound drivers
+mode "$modeLauncher" {
+    bindsym f exec firefox; mode "default"
+    bindsym t exec thunderbird; mode "default"
+    bindsym s exec pavucontrol #Audio controller
+
+    bindsym Escape mode "default"
+    bindsym $mod+o mode "default"
+}
+bindsym $mod+o mode "$modeLauncher"
+
+ 
+# Rofi menu launcher
+set $rofiTheme = "/home/paco/.config/rofi/sidetab.rasi"
+ 
+set $modeRofi Rofi: [r]un [w]indow [s]sh
+mode "$modeRofi" {
+    bindsym r exec rofi -show run -config $rofiTheme; mode "default"
+    bindsym w exec rofi -show window -config $rofiTheme; mode "default"
+    bindsym s exec rofi -show ssh -config $rofiTheme; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym $mod+d mode "default"
+}
+# Use Shift+d to launch all rofi types. Use d to launch rofi run type
+bindsym $mod+Shift+d mode "$modeRofi"
+#bindsym $mod+d exec rofi -show run -config $rofiTheme
+bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/scripts/appsmenu.sh
+bindsym $mod+c exec --no-startup-id $HOME/.config/rofi/scripts/i3layoutmenu.sh
+bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/scripts/powermenu.sh
+bindsym Print exec --no-startup-id $HOME/.config/rofi/scripts/scrotmenu.sh 
+  
+######################
+#      Shortcuts     #
+######################
+ 
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# Disable mouse focus
+focus_follows_mouse no
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+bindsym $mod+Shift+q kill
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Move fast
+bindsym $mod+Ctrl+$left move left 40px
+bindsym $mod+Ctrl+$down move down 40px
+bindsym $mod+Ctrl+$up move up 40px
+bindsym $mod+Ctrl+$right move right 40px
+# Move slow
+bindsym $mod+Shift+Ctrl+$left move left 1px
+bindsym $mod+Shift+Ctrl+$down move down 1px
+bindsym $mod+Shift+Ctrl+$up move up 1px
+bindsym $mod+Shift+Ctrl+$right move right 1px
+
+
+# split in horizontal orientation
+bindsym $mod+b split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+e exec i3-msg exit
+ 
+# tdrop
+bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -x 6 -y 35 gnome-terminal
+
+#######################
+#     Workspaces      # 
+#######################
+ 
+# Workspace naming
+set $ws1 "1:term"
+set $ws2 "2:ffox"
+set $ws3 "3:files"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6:pdf"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+ 
+# Assign workspaces to different screens
+workspace $ws1 output $firstMonitor
+workspace $ws2 output $firstMonitor
+workspace $ws3 output $firstMonitor
+workspace $ws4 output $firstMonitor
+workspace $ws5 output $firstMonitor
+workspace $ws6 output $secondMonitor
+workspace $ws7 output $secondMonitor
+workspace $ws8 output $secondMonitor
+workspace $ws9 output $secondMonitor
+workspace $ws10 output $secondMonitor
+ 
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Move workspaces to left or right screen
+bindsym $mod+w move workspace to output right
+bindsym $mod+Shift+w move workspace to output left
+
+ 
+###########################
+#      Windows format     #
+###########################
+
+# Gaps between windows
+gaps inner 6
+gaps top 30
+gaps bottom 7
+ 
+# title bar
+for_window [class="^.*"] border pixel 0 #  , title_format " %title "
+new_window pixel
+new_float normal
+hide_edge_borders none
+popup_during_fullscreen smart
+
+
+###########################
+#      Audio Control      #
+###########################
+
+#exec --no-startup-id systemctl enable pulseaudio.service --user
+exec --no-startup-id start-pulseaudio-x11
+#exec --no-startup-id pulseaudio --start
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  +5% # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+
+ 
+################################
+#      Brightness Control      #
+################################
+
+# Set brightness control
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 #increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 #increase screen brightness
+
+
+
+################################
+#      Apps to workspaces      #
+################################
+
+# Terminal
+#assign [class="gnome-terminal"] $ws1
+# Web apps
+assign [class="Firefox"] $ws2
+# File apps
+#assign [class="Nautilus"] $ws3
+assign [class="ranger"] $ws3
+# Documents apps
+assign [class="Evince"] $ws6
+
+
+####################################
+#      Apps in floating mode      #
+####################################
+
+# Preferences in terminator
+for_window [title="Terminator Preferences"] floating enable
+
+# Pavucontrol. Use for change audio output
+for_window [class="Pavucontrol"] floating enable
+
+# File explorer
+for_window [class="Nautilus"] floating enable
+for_window [class="Nautilus"] resize set 640 480
+ 
+  
+################################
+#      Initial executions      #
+################################
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+#set $refresh_i3status killall -SIGUSR1 i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Run polybar 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Set wallpaper
+exec_always --no-startup-id $HOME/.config/i3/scripts/changeWallpaper.sh
+
+# Run compton
+exec_always --no-startup-id compton 
+#exec_always --no-startup-id compton --config $HOME/config/compton.conf
+
+# Redirect CapsBlock key to Esc key
+exec_always setxkbmap es -option caps:escape
+ 
+
+
+#####################################
+#                                   #
+#        End configurations         #
+#                                   #
+#####################################
+
+
