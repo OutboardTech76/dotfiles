@@ -155,39 +155,25 @@ inherit = global/common
 padding-left = 5
 offset-x = 60.32%
 width = 9.2%
-;width = 8.5%
 modules-center = pulseaudio
 
 [bar/connection]
 inherit = global/common
-;offset-x = 79%
 offset-x = 81%:-12
 width = 10%
 modules-center = eth wlan
 tray-position = center
 tray-offset-x = 40.1%
 tray-transparent = true
-;tray-background = #0063ff
  
-[bar/right]
-inherit = global/common
-offset-x = 70%:-6
-width = 22.5%
-;padding-left = 2
-;modules-left = memory cpu
-modules-center = memory cpu eth wlan battery
-;modules-right = date
-
 [bar/battery]
 inherit = global/common
-;offset-x = 90%
 offset-x = 91%:-6
 width = 4.2%
 modules-center = battery
 
 [bar/date]
 inherit = global/common
-;offset-x = 95.2%:-1
 offset-x = 96%:-15
 width = 4.5%
 modules-center = date
@@ -215,23 +201,7 @@ label-indicator-padding = 2
 label-indicator-background = ${colors.secondary}
 ;label-indicator-underline = ${colors.secondary}
 
-[module/filesystem]
-type = internal/fs
-interval = 25
 
-mount-0 = /
-;mount-1 = /mnt
-
-format-mounted-prefix = " "
-format-mounted =  <label-mounted>
-
-format-unmounted-prefix = " "
-format-unmounted =  <label-unmounted>
- 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-;label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
- 
 [module/hddSize]
 type = internal/fs
 interval = 25
@@ -243,9 +213,7 @@ format-mounted =  <label-mounted>
 format-unmounted-prefix = " "
 format-unmounted = <label-unmounted>
 
-;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-mounted = : %free% of %total%
-;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free% of %total%
 label-unmounted-foreground = ${colors.foreground-alt}
  
   
@@ -261,7 +229,6 @@ format-mounted =  <label-mounted>
 format-unmounted-prefix = " "
 format-unmounted =  <label-unmounted>
  
-;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free% of %total%
 label-mounted = : %free% of %total%
 label-unmounted = 
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -269,35 +236,26 @@ label-unmounted-foreground = ${colors.foreground-alt}
  
 [module/i3]
 type = internal/i3
-;format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = true
 enable-scroll = false
 strip-wsnumbers = true
 fuzzy-match = true
  
-  
 ws-icon-0 = term;
 ws-icon-1 = ffox;
-;ws-icon-1 = "2;"
 ws-icon-2 = files; 
 ws-icon-3 = 4; 
 ws-icon-4 = 5;
 ws-icon-5 = pdf;
-;ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = 
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = false
  
 format = <label-state> <label-mode>
-;format-background = ${colors.materialBlack}
 
-;label-focused-font = 1
 label-mode = %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -308,16 +266,12 @@ label-empty = %icon%
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon% 
-;label-focused = %index% %icon%
 label-focused-foreground = ${colors.cyan}
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.materialBlue}
-;label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-
 ; unfocused = Inactive workspace on any monitor
-;label-unfocused = "%index% %icon%"
 label-unfocused = %icon% 
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.materialBlack}
