@@ -125,9 +125,9 @@ modules-left = hddSize mntSize
 
 [bar/monitor]
 inherit = global/common
-offset-x = 29.2%:-1
-width = 10.5%
-modules-center = memory cpu
+offset-x = 25.2%
+width = 14.5%
+modules-center = memory cpu gpu
 
 [bar/middle]
 inherit = global/common
@@ -165,6 +165,11 @@ offset-x = 96%:-15
 width = 4.5%
 modules-center = date
 
+
+[module/gpu]
+type = custom/script
+exec = $HOME/.config/polybar/nvidia-info.sh
+interval = 10
 
 
 [module/xwindow]
