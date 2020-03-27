@@ -1,0 +1,53 @@
+/**
+ * This theme is intended for a 6x2 items list menu with a headerbar.
+ */
+@import "commonConf.rasi"
+@import "shared/colorschemes/material.rasi"
+ 
+* {
+  /*background-color: @transparentBackground;*/
+  background-color: @background;
+  text-color: @text-white;
+  font: @text-font;
+}
+#window {
+  padding: @list-6-window-padding;
+  width: 100%;
+  height: 100%;
+  background-color: @background;
+}
+ 
+inputbar,
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: @iconBackground;
+}
+#inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+  margin: @inputbar-margin;
+}
+#prompt {
+  padding: @prompt-padding;
+  background-color: @purple2;
+  text-color: @text-white;
+ 
+}
+#textbox-prompt-colon {
+  expand: false;
+  padding: 1px;
+}
+#entry {
+  text-color: @text-white;
+  padding: @entry-padding;
+}
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  background-color: @iconBackground;
+}
+#element.selected {
+  background-color: @purple;
+  text-color: @text-white;
+}
+

@@ -1,0 +1,54 @@
+/**************************************************/
+/*     Config options common to different menus   */
+/**************************************************/
+
+* {
+    /*****************/
+    /* Font settings */
+    /*****************/
+    text-font: "System San Francisco Display 12";
+    text-font-mono: "SF Mono Light 12";
+    icon-font: "Font Awesome 5 Free Solid 40";
+    icon-font-small: "Font Awesome 5 Free Solid 24";
+    /*icon-font: "NotoSansDisplay Nerd Font 40";*/
+    /*icon-font-small: "NotoSansDisplay Nerd Font 24";*/
+
+    /******************/
+    /* Windows format */
+    /******************/
+    inputbar-margin: 4px 4px;
+    prompt-padding: 16px 12px;
+    entry-padding: 16px 20px;
+    border-radius: 14px;
+
+
+    /************************/
+    /* List menus: appsmenu */
+    /************************/
+    list-element-padding: 20px;
+    list-element-margin: @inputbar-margin;
+
+    list-6-window-padding: 301px 545px;
+
+
+    /*****************************************/
+    /* Option menus: powermenu, i3layoutmenu */
+    /*****************************************/
+    /* icon size:*/
+    /*option-icon-size: 10px -75px 13px -54px;*/
+    option-icon-size: 5px 02px 5px -49px;
+    /*option-icon-size: 6px 9px 6px -54px;*/
+    /*option-icon-size: 6px 7px 6px -54px;*/
+
+    /* space between icons: */
+    option-space: 35px;
+    /*option-space: 40px;*/
+
+    /* Center icons in the screen: */
+    option-3-window-padding: 507px 810px;
+    /*option-4-window-padding: 417px 709px;*/
+    option-4-window-padding: 507px 759px;
+
+}
+
+

@@ -1,0 +1,30 @@
+* {
+   
+  darkBlue: #192bc2;
+  blue: #3974ff;
+  blue2: #247ba0;
+  green: #00a676;
+  red: #d33f49;
+  purple: #5f4bb6;
+  pink: #de0d92;
+  purple2: #6665dd;
+  accent:           #61AFEF;
+
+  /* Icons background color */
+  iconBackground: rgba(30, 33, 39, 100%);
+  background-light:       rgba( 30, 33, 39, 100% );
+   
+  /* Row background color */
+  background: rgba( 30, 33, 39, 0% );
+  /*background: rgba( 30, 33, 39, 5% );*/
+   
+  background-focus: #282828;
+  foreground:       #888888;
+  foreground-list: #CEDDF3;
+   
+  text-white: #e8f1f2;
+  /*text-white: #CEDDF3;*/
+   
+  on:               #44ad4d;
+  off:              #e34039;
+}

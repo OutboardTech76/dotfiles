@@ -1,0 +1,32 @@
+
+@import "commonConf.rasi"
+@import "shared/colorschemes/material.rasi"
+* {
+    background-color: @background;
+    text-color: @text-white;
+    font: @icon-font;
+}
+#window {
+    children: [ horibox ];
+    padding: @option-4-window-padding ;
+    width: 100%;
+    height: 100%;
+}
+#horibox {
+    children: [ listview ];
+}
+#listview {
+    layout: horizontal;
+    spacing: @option-space;
+    lines: 4;
+}
+#element {
+    padding: @option-icon-size;
+    background-color: @iconBackground;
+    /*background-color: @background-light;*/
+}
+#element.selected {
+/*background-color: @accent;*/
+background-color: @blue;
+text-color: @text-white;
+}

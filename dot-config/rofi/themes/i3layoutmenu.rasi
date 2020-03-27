@@ -1,0 +1,32 @@
+
+/* import colorsheme and common settings */
+@import "commonConf.rasi"
+@import "shared/colorschemes/material.rasi"
+
+*{
+    background-color: @background;
+    text-color: @text-white;
+    font: @icon-font;
+}
+#window {
+    children: [ horibox ];
+    padding: @option-3-window-padding;
+    width: 100%;
+    height: 100%;
+}
+#horibox {
+    children: [ listview ];
+}
+#listview {
+    layout: horizontal;
+    spacing: @option-space;
+    lines: 3;
+}
+#element {
+    padding: @option-icon-size;
+    background-color: @iconBackground;
+}
+#element.selected {
+    background-color: @green;
+    text-color: @text-white;
+}
