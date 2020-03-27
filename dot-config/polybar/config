@@ -17,10 +17,8 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -99,27 +97,16 @@ line-color = #f00
 
 separator = %{F#88c0d0} | %{F-}
 
-;border-size = 4
-;border-color = #00000000
 border-size = 0
 border-transparent = true
- 
   
 padding-left = 0
 padding-right = 0
 
-;padding-top = 5
-;margin-top = 6
-;margin-bottom = 6
-
 module-margin-left = 1
 module-margin-right = 1
 
-;Opacity used on fade in/out
-;dim-value = 0.8 
-
 cursor-click = pointer
-;cursor-scroll = ns-resize
 
 # last number refers to centering text in the bar
 font-0 = "System San Francisco Display:style=Retina:pixelsize=11;2"
@@ -184,23 +171,6 @@ modules-center = date
 type = internal/xwindow
 label = %title:0:30:...%
  
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-underline = ${colors.secondary}
-
-;label-layout = %layout%
-;label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-;label-indicator-margin = 0.5
-; 
-label-indicator-background = ${colors.secondary}
-;label-indicator-underline = ${colors.secondary}
-
 
 [module/hddSize]
 type = internal/fs
@@ -277,20 +247,16 @@ label-unfocused-padding = 2
 label-unfocused-background = ${colors.materialBlack}
 
 ; visible = Active workspace on unfocused monitor
-;label-visible = "%index% %icon%"
 label-visible = %icon% 
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-;label-urgent = "%index% %icon%"
 label-urgent = %icon% 
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-; Separator in between workspaces
-; label-separator = |
 
 [module/brightness]
 type = internal/backlight
@@ -310,22 +276,19 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
+ 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.white}
-;format-underline = ${colors.yellow}
 label = %percentage:2%%
-
+ 
+ 
 [module/memory]
 type = internal/memory
 interval = 2
-;format-prefix = " " 
 format = "<bar-used> <label>"
-;format-suffix = ""
-;format-prefix-foreground = ${colors.green}
-;format-underline = #4bffdc
 label = %percentage_used%%
  
 bar-used-indicator=
@@ -334,7 +297,6 @@ bar-used-foreground-0 = ${colors.green}
 bar-used-foreground-1 = ${colors.yellow}
 bar-used-foreground-2 = #f5a70a
 bar-used-foreground-3 = ${colors.red}
-;bar-used-fill = ▐
 bar-used-fill =   
 bar-used-empty =
 bar-used-empty-foreground = #444444
@@ -349,60 +311,39 @@ ramp-used-3 = 
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-;format-connected-prefix = "👌 "
-;format-connected-prefix = %{A1:stalonetray:} %{A}
-;format-connected-prefix = %{A1:nm-connection-editor:} %{A}
 
 format-connected = <label-connected>
-;format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = ${colors.green}
-;format-connected-prefix-foreground = ${colors.green}
 label-connected = %essid%
 
-;format-disconnected-prefix = ""
 format-disconnected = ""
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${colors.red}
 format-disconnected-foreground = ${colors.red}
-;format-disconnected-prefix-foreground = ${colors.red}
-;label-disconnected = disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-;ramp-signal-5 = 😱
-;ramp-signal-4 = 😠
-;ramp-signal-3 = 😒
-;ramp-signal-2 = 😊
-;ramp-signal-1 = 😃
-;ramp-signal-0 = 😈
-ramp-signal-foreground = ${colors.yellow}
 
+ 
 [module/eth]
 type = internal/network
 interface = enx00e04c68023b
 interval = 3.0
 
-;format-connected-underline = #55aa55
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.green}
 label-connected = %local_ip%
 
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${colors.red}
-;label-disconnected = %ifname% disconnected
 label-disconnected = 
 label-disconnected-foreground = ${colors.red}
 
+ 
 [module/date]
 type = internal/date
 interval = 5
 
 time = %H:%M
-
 format-prefix = "  "
 format-prefix-margin-top = 3
 format-prefix-foreground = ${colors.blue}
-
 label = %time%
 
+ 
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -411,7 +352,6 @@ label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
-;label-muted-foreground = #666
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -436,18 +376,14 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 99
-
+full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-;format-charging-underline = green
 
 format-discharging = <ramp-capacity> <label-discharging>
-;format-discharging-underline = ${colors.yellow}
 
 format-full = ""
 format-full-foreground = ${colors.white}
-;format-full-underline = ${colors.magenta}
 
 ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1-foreground = ${colors.yellow}
@@ -460,8 +396,6 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
  
- 
- 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -470,115 +404,7 @@ animation-charging-4 = 
 animation-charging-foreground = ${colors.white}
 animation-charging-framerate = 750
  
- 
 
-  
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
- 
-  
-[module/restart]
-
-type = custom/text
-
-content-prefix = ""
-content = " restart "
-content-suffix = ""
-
-content-prefix-background = ${colors.color0}
-content-prefix-foreground = ${colors.color8}
-
-content-background = ${colors.color8}
-content-foreground = ${colors.foreground}
-
-content-suffix-background = ${colors.color8}
-content-suffix-foreground = ${colors.color0}
-
-click-left = "shutdown -r now"
-
-[module/shutdown]
-
-type = custom/text
-
-content-prefix = ""
-content = " shutdown "
-content-suffix = ""
-
-content-prefix-background = ${colors.color0}
-content-prefix-foreground = ${colors.color8}
-
-content-background = ${colors.color8}
-content-foreground = ${colors.foreground}
-
-content-suffix-background = ${colors.color8}
-content-suffix-foreground = ${colors.color0}
-
-click-left = "shutdown -h now"
-
-[module/logout]
-
-type = custom/text
-
-content-prefix = ""
-content = " logout "
-content-suffix = ""
-
-content-prefix-background = ${colors.color0}
-content-prefix-foreground = ${colors.color8}
-
-content-background = ${colors.color8}
-content-foreground = ${colors.foreground}
-
-content-suffix-background = ${colors.color8}
-content-suffix-foreground = ${colors.color0}
-
-click-left = "i3-msg exit"
-
-[module/lock]
-
-type = custom/text
-
-content-prefix = ""
-content = " lock "
-content-suffix = ""
-
-content-prefix-background = ${colors.color0}
-content-prefix-foreground = ${colors.color8}
-
-content-background = ${colors.color8}
-content-foreground = ${colors.foreground}
-
-content-suffix-background = ${colors.color8}
-content-suffix-foreground = ${colors.color0}
-
-click-left = ". ~/.bin/i3_lockcolor &"
- 
   
 [global/wm]
 margin-top = 940
