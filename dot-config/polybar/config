@@ -16,49 +16,40 @@
 ;
 ;==========================================================
 
+ 
 [colors]
 background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
-
+background-alt = #3f4653
+background-alt2 = #3b4252
+background-alt3 = #444
  
+foreground = #dfdfdf
+foreground-alt2 = #626977
+foreground-alt3 = #464d59
+foreground-alt = #3b4252
+primary = #ffb52a
+ 
+pink = #e60053
+orange = #FF7902
+magenta =       #b48ead
+cyan =       #88c0d0
+white =       #e5e9f0
 ; black
 materialBlack = #282C34
-color0 =       #3b4252
-color8 =       #4c566a
 ; red
 red =       #f90000
-color1 =       #bf616a
-color9 =       #bf616a
+softRed = #bd2c40
+red2 = #ff5555
 ; green
 green = #55aa55
-color2 =       #a3be8c
-color10 =      #a3be8c
+pastelGreen =       #a3be8c
 ; yellow
 yellow =       #ffb52a
-color3 =       #ebcb8b
-color11 =      #ebcb8b
+strongYellow = #FFA400
 ; blue
 blue =       #0a6cf5
 materialBlue = #61AFEF
-color4 =       #81a1c1
-color12 =      #81a1c1
-; magenta
-magenta =       #b48ead
-color5 =       #b48ead
-color13 =      #b48ead
-; cyan
-cyan =       #88c0d0
-color6 =       #88c0d0
-color14 =      #8fbcbb
-; white
-white =       #e5e9f0
-color7 =       #e5e9f0
-color15 =      #eceff4
+pastelBlue =       #81a1c1
 
 [constants]
 padding = 1
@@ -171,7 +162,6 @@ offset-x = 96%:-15
 width = 4.5%
 modules-center = date
 
-
 [module/temp1]
 type = internal/temperature
 interval = 1
@@ -196,7 +186,7 @@ ramp-5-foreground = ${colors.green}
 ramp-6-foreground = ${colors.green}
 ramp-7-foreground = ${colors.white}
 ramp-8-foreground = ${colors.yellow}
-ramp-9-foreground = ${colors.yellow}
+ramp-9-foreground = ${colors.orange}
 ramp-10-foreground = ${colors.red}
 ramp-0 = 
 ramp-1 = 
@@ -219,18 +209,15 @@ hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp4_input
 [module/temp4]
 inherit = module/temp1
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp5_input
- 
   
 [module/gpu]
 type = custom/script
 exec = $HOME/.config/polybar/nvidia-info.sh
 interval = 10
 
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
- 
 
 [module/hddSize]
 type = internal/fs
@@ -244,8 +231,7 @@ format-unmounted-prefix = " "
 format-unmounted = <label-unmounted>
 
 label-mounted = : %free% of %total%
-label-unmounted-foreground = ${colors.foreground-alt}
- 
+label.unmounted =
   
 [module/mntSize]
 type = internal/fs
@@ -255,13 +241,9 @@ mount-0 = /mnt
 
 format-mounted-prefix = " "
 format-mounted =  <label-mounted>
-
-format-unmounted-prefix = " "
-format-unmounted =  <label-unmounted>
  
 label-mounted = : %free% of %total%
 label-unmounted = 
-label-unmounted-foreground = ${colors.foreground-alt}
  
  
 [module/i3]
@@ -286,14 +268,6 @@ ws-icon-default = 
  
 format = <label-state> <label-mode>
 
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-label-empty-foreground = ${colors.white}
-label-empty = %icon%
-
 ; focused = Active workspace on focused monitor
 label-focused = %icon% 
 label-focused-foreground = ${colors.cyan}
@@ -314,7 +288,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon% 
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.softRed}
 label-urgent-padding = 2
 
 
@@ -335,7 +309,6 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
-
  
 [module/cpu]
 type = internal/cpu
@@ -343,7 +316,6 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.white}
 label = %percentage:2%%
- 
  
 [module/memory]
 type = internal/memory
@@ -355,16 +327,15 @@ bar-used-indicator=
 bar-used-width = 5
 bar-used-foreground-0 = ${colors.green}
 bar-used-foreground-1 = ${colors.yellow}
-bar-used-foreground-2 = #f5a70a
+bar-used-foreground-2 = ${colors.orange}
 bar-used-foreground-3 = ${colors.red}
 bar-used-fill =   
 bar-used-empty =
-bar-used-empty-foreground = #444444
+bar-used-empty-foreground = ${colors.foreground-alt}
 ramp-used-0 = 
 ramp-used-1 = 
 ramp-used-2 = 
 ramp-used-3 = 
- 
   
 [module/wlan]
 type = internal/network
@@ -376,7 +347,6 @@ label-connected = %essid%
 
 format-disconnected = ""
 format-disconnected-foreground = ${colors.red}
-
  
 [module/eth]
 type = internal/network
@@ -390,7 +360,6 @@ label-connected = %local_ip%
 format-disconnected = <label-disconnected>
 label-disconnected = 
 label-disconnected-foreground = ${colors.red}
-
  
 [module/date]
 type = internal/date
@@ -401,7 +370,6 @@ format-prefix = "  "
 format-prefix-margin-top = 3
 format-prefix-foreground = ${colors.blue}
 label = %time%
-
  
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -413,20 +381,21 @@ label-volume-foreground = ${root.foreground}
 label-muted =  muted
 
 bar-volume-width = 17
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.green}
+bar-volume-foreground-5 = ${colors.green}
+bar-volume-foreground-6 = ${colors.yellow}
+bar-volume-foreground-7 = ${colors.orange}
+bar-volume-foreground-8 = ${colors.red2}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-fill = 
 bar-volume-empty = 
 bar-volume-empty-foreground = ${colors.foreground-alt}
   
-   
     
 [module/battery]
 type = internal/battery
@@ -442,7 +411,7 @@ format-full = ""
 format-full-foreground = ${colors.white}
 
 ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1-foreground = ${colors.yellow}
+ramp-capacity-1-foreground = ${colors.orange}
 ramp-capacity-2-foreground = ${colors.yellow}
 ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4-foreground = ${colors.green}
@@ -466,4 +435,5 @@ animation-charging-framerate = 750
 margin-top = 940
 margin-bottom = 940
 
-; vim:ft=dosini
+; enable .ini hightlight syntax
+# vim: ft=dosini
