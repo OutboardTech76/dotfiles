@@ -1,1 +1,4 @@
 dot-config/nvim/bundle
+ranger/bookmarks
+ranger/history
+ranger/tagged
