@@ -10,12 +10,17 @@
 exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-1 --left-of eDP-1-1 --auto
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --left-of eDP-1-1 --auto
 
+# Load .Xresources
+exec xrdb .Xresources
 
 ###################
 #      Fonts      #
 ###################
 # The first for symbols, the second for plain text
-font pango:FontAwesome 10, System San Francisco Display 10
+#font pango:FontAwesome 10, System San Francisco Display 10
+set_from_resource $symbolsFont i3wm.font1 monospace
+set_from_resource $textFont i3wm.font2 monospace
+font pango:symbolsFont, textFont
  
  
 #######################
@@ -29,14 +34,6 @@ set $down j
 set $left h
 set $right l
  
-
-# Color configuration
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $blue-color          #5DA8F4
 
 # Monitors names
 set $firstMonitor DP-1-1
