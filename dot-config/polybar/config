@@ -234,6 +234,11 @@ ws-icon-default = 
  
 format = <label-state> <label-mode>
 
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = ${xrdb:background:#00ff00}
+label-mode-background = ${xrdb:pink:#00ff00}
+
 ; focused = Active workspace on focused monitor
 label-focused = %icon% 
 label-focused-foreground = ${xrdb:cyan:#00ff00}
