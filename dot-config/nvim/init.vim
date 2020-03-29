@@ -137,6 +137,7 @@ let g:tex_flavor = 'latex'
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+  au BufNewFile,BufRead ~/dotfiles/dot-config/i3/config set filetype=i3config
 aug end
 
 " Enable auto fold for python
