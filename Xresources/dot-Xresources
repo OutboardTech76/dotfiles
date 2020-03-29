@@ -60,12 +60,12 @@ URxvt.color15:#d4d4d4
 
 
 ! Fonts
-*sanfFont: System San Francisco Display:style=Retina:pixelsize=11;2
-*awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11;2
-*awesomeFont2: Font Awesome 5 Free:pixelsize=11;2
-*awesomeFont3: Font Awesome 5 Brands:pixelsize=11;2
-*notoFont: NotoSansDisplay Nerd Font:pixelsize=12;3
-*emojiFont: NotoEmoji Nerd Font:pixelsize=12;3
+*sanfFont: System San Francisco Display:style=Retina:pixelsize=11
+*awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
+*awesomeFont2: Font Awesome 5 Free:pixelsize=11
+*awesomeFont3: Font Awesome 5 Brands:pixelsize=11
+*notoFont: NotoSansDisplay Nerd Font:pixelsize=11
+*emojiFont: NotoEmoji Nerd Font:pixelsize=11
 i3wm.font1: FontAwesome 10
 i3wm.font2: System San Francisco Display 10
 
