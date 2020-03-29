@@ -64,11 +64,11 @@ module-margin-right = 1
 
 cursor-click = pointer
 
-font-0 = ${xrdb:sanfFont:"monospace:size=20"}
-font-1 = ${xrdb:awesomeFont1:"monospace:size=20"}
-font-2 = ${xrdb:awesomeFont2:"monospace:size=20"}
-font-3 = ${xrdb:awesomeFont3:"monospace:size=20"}
-font-4 = ${xrdb:notoFont:"monospace:size=20"}
+font-0 = ${xrdb:polybar.sanfFont:"monospace:size=20"}
+font-1 = ${xrdb:polybar.awesomeFont1:"monospace:size=20"}
+font-2 = ${xrdb:polybar.awesomeFont2:"monospace:size=20"}
+font-3 = ${xrdb:polybar.awesomeFont3:"monospace:size=20"}
+font-4 = ${xrdb:polybar.notoFont:"monospace:size=20"}
 ;font-5 = ${xrdb:emojiFont:"monospace:size=20"}
 
 [bar/sizeInfo]
