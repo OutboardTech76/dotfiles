@@ -17,40 +17,6 @@
 ;==========================================================
 
  
-[colors]
-background = #222
-background-alt = #3f4653
-background-alt2 = #3b4252
-background-alt3 = #444
- 
-foreground = #dfdfdf
-foreground-alt2 = #626977
-foreground-alt3 = #464d59
-foreground-alt = #3b4252
-primary = #ffb52a
- 
-pink = #e60053
-orange = #FF7902
-magenta =       #b48ead
-cyan =       #88c0d0
-white =       #e5e9f0
-; black
-materialBlack = #282C34
-; red
-red =       #f90000
-softRed = #bd2c40
-red2 = #ff5555
-; green
-green = #55aa55
-pastelGreen =       #a3be8c
-; yellow
-yellow =       #ffb52a
-strongYellow = #FFA400
-; blue
-blue =       #0a6cf5
-materialBlue = #61AFEF
-pastelBlue =       #81a1c1
-
 [constants]
 padding = 1
  
@@ -79,8 +45,8 @@ width = 100%
  
 bottom=false
  
-background = ${colors.materialBlack}
-foreground = ${colors.foreground}
+background = ${xrdb:background:#00ff00}
+foreground = ${xrdb:foreground:#00ff00}
  
 line-size = 3
 line-color = #f00
@@ -98,13 +64,12 @@ module-margin-right = 1
 
 cursor-click = pointer
 
-# last number refers to centering text in the bar
-font-0 = "System San Francisco Display:style=Retina:pixelsize=11;2"
-font-1 = "Font Awesome 5 Free Solid:pixelsize=11;2"
-font-2 = "Font Awesome 5 Free:pixelsize=11;2"
-font-3 = "Font Awesome 5 Brands:pixelsize=11;2"
-font-4 = "NotoSansDisplay Nerd Font:pixelsize=12;3"
-;font-4 = "NotoEmoji Nerd Font:pixelsize=12;3"
+font-0 = ${xrdb:sanfFont:"monospace:size=20"}
+font-1 = ${xrdb:awesomeFont1:"monospace:size=20"}
+font-2 = ${xrdb:awesomeFont2:"monospace:size=20"}
+font-3 = ${xrdb:awesomeFont3:"monospace:size=20"}
+font-4 = ${xrdb:notoFont:"monospace:size=20"}
+;font-5 = ${xrdb:emojiFont:"monospace:size=20"}
 
 [bar/sizeInfo]
 inherit = global/common
@@ -175,19 +140,19 @@ label-warn = %temperature-c%
 format = <ramp> <label>
 format-warn =   <label-warn>
 format-warn-prefix = " "
-format-warn-foreground = ${colors.red}
+format-warn-foreground = ${xrdb:red:#00ff00}
 
-ramp-0-foreground = ${colors.blue}
-ramp-1-foreground = ${colors.cyan}
-ramp-2-foreground = ${colors.cyan}
-ramp-3-foreground = ${colors.white}
-ramp-4-foreground = ${colors.green}
-ramp-5-foreground = ${colors.green}
-ramp-6-foreground = ${colors.green}
-ramp-7-foreground = ${colors.white}
-ramp-8-foreground = ${colors.yellow}
-ramp-9-foreground = ${colors.orange}
-ramp-10-foreground = ${colors.red}
+ramp-0-foreground = ${xrdb:blue:#00ff00}
+ramp-1-foreground = ${xrdb:cyan:#00ff00}
+ramp-2-foreground = ${xrdb:cyan:#00ff00}
+ramp-3-foreground = ${xrdb:white:#00ff00}
+ramp-4-foreground = ${xrdb:green:#00ff00}
+ramp-5-foreground = ${xrdb:green:#00ff00}
+ramp-6-foreground = ${xrdb:green:#00ff00}
+ramp-7-foreground = ${xrdb:white:#00ff00}
+ramp-8-foreground = ${xrdb:yellow:#00ff00}
+ramp-9-foreground = ${xrdb:orange:#00ff00}
+ramp-10-foreground = ${xrdb:red:#00ff00}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -255,6 +220,7 @@ strip-wsnumbers = true
 fuzzy-match = true
  
 ws-icon-0 = term;
+;ws-icon-1 = ffox;
 ws-icon-1 = ffox;
 ws-icon-2 = files; 
 ws-icon-3 = 4; 
@@ -270,15 +236,15 @@ format = <label-state> <label-mode>
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon% 
-label-focused-foreground = ${colors.cyan}
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.materialBlue}
+label-focused-foreground = ${xrdb:cyan:#00ff00}
+label-focused-background = ${xrdb:background-alt:#00ff00}
+label-focused-underline= ${xrdb:materialBlue:#00ff00}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon% 
 label-unfocused-padding = 2
-label-unfocused-background = ${colors.materialBlack}
+label-unfocused-background = ${xrdb:background:#00ff00}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% 
@@ -288,7 +254,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon% 
-label-urgent-background = ${colors.softRed}
+label-urgent-background = ${xrdb:softRed:#00ff00}
 label-urgent-padding = 2
 
 
@@ -308,13 +274,13 @@ bar-fill-font = 2
 bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${xrdb:foreground-alt:#00ff00}
  
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.white}
+format-prefix-foreground = ${xrdb:white:#00ff00}
 label = %percentage:2%%
  
 [module/memory]
@@ -325,13 +291,13 @@ label = %percentage_used%%
  
 bar-used-indicator=
 bar-used-width = 5
-bar-used-foreground-0 = ${colors.green}
-bar-used-foreground-1 = ${colors.yellow}
-bar-used-foreground-2 = ${colors.orange}
-bar-used-foreground-3 = ${colors.red}
+bar-used-foreground-0 = ${xrdb:green:#00ff00}
+bar-used-foreground-1 = ${xrdb:yellow:#00ff00}
+bar-used-foreground-2 = ${xrdb:orange:#00ff00}
+bar-used-foreground-3 = ${xrdb:red:#00ff00}
 bar-used-fill =   
 bar-used-empty =
-bar-used-empty-foreground = ${colors.foreground-alt}
+bar-used-empty-foreground = ${xrdb:foreground-alt:#00ff00}
 ramp-used-0 = 
 ramp-used-1 = 
 ramp-used-2 = 
@@ -346,7 +312,7 @@ format-connected = <label-connected>
 label-connected = %essid%
 
 format-disconnected = ""
-format-disconnected-foreground = ${colors.red}
+format-disconnected-foreground = ${xrdb:red:#00ff00}
  
 [module/eth]
 type = internal/network
@@ -354,12 +320,12 @@ interface = enx00e04c68023b
 interval = 3.0
 
 format-connected-prefix = 
-format-connected-prefix-foreground = ${colors.green}
+format-connected-prefix-foreground = ${xrdb:green:#00ff00}
 label-connected = %local_ip%
 
 format-disconnected = <label-disconnected>
 label-disconnected = 
-label-disconnected-foreground = ${colors.red}
+label-disconnected-foreground = ${xrdb:red:#00ff00}
  
 [module/date]
 type = internal/date
@@ -368,7 +334,7 @@ interval = 5
 time = %H:%M
 format-prefix = "  "
 format-prefix-margin-top = 3
-format-prefix-foreground = ${colors.blue}
+format-prefix-foreground = ${xrdb:blue:#00ff00}
 label = %time%
  
 [module/pulseaudio]
@@ -381,20 +347,20 @@ label-volume-foreground = ${root.foreground}
 label-muted =  muted
 
 bar-volume-width = 17
-bar-volume-foreground-0 = ${colors.green}
-bar-volume-foreground-1 = ${colors.green}
-bar-volume-foreground-2 = ${colors.green}
-bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.green}
-bar-volume-foreground-5 = ${colors.green}
-bar-volume-foreground-6 = ${colors.yellow}
-bar-volume-foreground-7 = ${colors.orange}
-bar-volume-foreground-8 = ${colors.red2}
+bar-volume-foreground-0 = ${xrdb:green:#00ff00}
+bar-volume-foreground-1 = ${xrdb:green:#00ff00}
+bar-volume-foreground-2 = ${xrdb:green:#00ff00}
+bar-volume-foreground-3 = ${xrdb:green:#00ff00}
+bar-volume-foreground-4 = ${xrdb:green:#00ff00}
+bar-volume-foreground-5 = ${xrdb:green:#00ff00}
+bar-volume-foreground-6 = ${xrdb:yellow:#00ff00}
+bar-volume-foreground-7 = ${xrdb:orange:#00ff00}
+bar-volume-foreground-8 = ${xrdb:red2:#00ff00}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-fill = 
 bar-volume-empty = 
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${xrdb:foreground-alt:#00ff00}
   
     
 [module/battery]
@@ -408,13 +374,13 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
 format-full = ""
-format-full-foreground = ${colors.white}
+format-full-foreground = ${xrdb:white:#00ff00}
 
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1-foreground = ${colors.orange}
-ramp-capacity-2-foreground = ${colors.yellow}
-ramp-capacity-3-foreground = ${colors.green}
-ramp-capacity-4-foreground = ${colors.green}
+ramp-capacity-0-foreground = ${xrdb:red:#00ff00}
+ramp-capacity-1-foreground = ${xrdb:orange:#00ff00}
+ramp-capacity-2-foreground = ${xrdb:yellow:#00ff00}
+ramp-capacity-3-foreground = ${xrdb:green:#00ff00}
+ramp-capacity-4-foreground = ${xrdb:green:#00ff00}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -426,7 +392,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 =  
-animation-charging-foreground = ${colors.white}
+animation-charging-foreground = ${xrdb:white:#00ff00}
 animation-charging-framerate = 750
  
 
