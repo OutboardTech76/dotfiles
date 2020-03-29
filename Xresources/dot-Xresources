@@ -25,29 +25,29 @@
 
 ! Urxtv colors
 !Black
-URxvt.color0:#646464
-URxvt.color8:#646464
+st.color0:#646464
+st.color8:#646464
 !Red
-URxvt.color1:#f58e8e
-URxvt.color9:#f58e8e
+st.color1:#f58e8e
+st.color9:#f58e8e
 !Green
-URxvt.color2:#a9d3ab
-URxvt.color10:a9d3ab
+st.color2:#a9d3ab
+st.color10: #a9d3ab
 !Yellow
-URxvt.color3:#fed37e
-URxvt.color11:#fed37e
+st.color3:#fed37e
+st.color11:#fed37e
 !Blue
-URxvt.color4:#7aabd4
-URxvt.color12:#7aabd4
+st.color4:#7aabd4
+st.color12:#7aabd4
 !Magenta
-URxvt.color5:#d6add5
-URxvt.color13:#d6add5
+st.color5:#d6add5
+st.color13:#d6add5
 !Cyan
-URxvt.color6:#79d4d5
-URxvt.color14:#79d4d5
+st.color6:#79d4d5
+st.color14:#79d4d5
 !White
-URxvt.color7:#d4d4d4
-URxvt.color15:#d4d4d4
+st.color7:#d4d4d4
+st.color15:#d4d4d4
 
 *grey: #646464
 *pastelRed: #f58e8e
@@ -60,14 +60,14 @@ URxvt.color15:#d4d4d4
 
 
 ! Fonts
-*sanfFont: System San Francisco Display:style=Retina:pixelsize=11
-*awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
-*awesomeFont2: Font Awesome 5 Free:pixelsize=11
-*awesomeFont3: Font Awesome 5 Brands:pixelsize=11
-*notoFont: NotoSansDisplay Nerd Font:pixelsize=11
-*emojiFont: NotoEmoji Nerd Font:pixelsize=11
+polybar.sanfFont: System San Francisco Display:style=Retina:pixelsize=11;2
+polybar.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11;2
+polybar.awesomeFont2: Font Awesome 5 Free:pixelsize=11;2
+polybar.awesomeFont3: Font Awesome 5 Brands:pixelsize=11;2
+polybar.notoFont: NotoSansDisplay Nerd Font:pixelsize=11;2
+polybar.emojiFont: NotoEmoji Nerd Font:pixelsize=11;2
 i3wm.font1: FontAwesome 10
 i3wm.font2: System San Francisco Display 10
-
+st.font: monospace:pixelsize=14
 
 
