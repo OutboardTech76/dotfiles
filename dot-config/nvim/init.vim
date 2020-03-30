@@ -140,6 +140,12 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/dotfiles/dot-config/i3/config set filetype=i3config
 aug end
 
+" Run xrdb when Xresources are updated
+autocmd BufWritePost ~/.Xresources,~/dotfiles/Xresources/dot-Xresources !xrdb %
+
+" Recompile st terminal when is updated
+autocmd BufWritePost ~/dotfiles/st/config.h,~/dotfiles/st/config.def.h !sudo make install
+
 " Enable auto fold for python
 "set foldmethod=syntax
 "set foldlevelstart=0
