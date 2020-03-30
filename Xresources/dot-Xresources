@@ -7,10 +7,11 @@
 *background-alt: #3f4653
 *background-alt2: #3b4252
 *background-alt3: #444
-*foreground: #abb2bf
+*foreground1: #abb2bf
 *foreground4: #d3e8ee
 *foreground3: #d4d4d4
-*foreground2: #dfdfdf
+*foreground0: #dfdfdf
+*foreground: #e5e9f0
 *foreground-alt: #3b4252
 *softPink: #e60053
 *pink: #d85dc0 
@@ -82,12 +83,13 @@ polybar.notoFont: NotoSansDisplay Nerd Font:pixelsize=11;2
 polybar.emojiFont: NotoEmoji Nerd Font:pixelsize=11;2
 i3wm.font1: FontAwesome 10
 i3wm.font2: System San Francisco Display 10
-st.font: SFMono:size=14:antialias=true
+st.font: Hack:size=14:antialias=true:autohint=true
 st.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
 st.awesomeFont2: Font Awesome 5 Free:pixelsize=11
 st.awesomeFont3: Font Awesome 5 Brands:pixelsize=11
 st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
-st.powerlineFont: SFMonoPowerline:pixelsize=11
+st.powerlineFont: Hack:pixelsize=11
+
 
 
