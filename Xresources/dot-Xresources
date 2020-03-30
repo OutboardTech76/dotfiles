@@ -7,9 +7,14 @@
 *background-alt: #3f4653
 *background-alt2: #3b4252
 *background-alt3: #444
-*foreground: #dfdfdf
+*foreground: #abb2bf
+*foreground4: #d3e8ee
+*foreground3: #d4d4d4
+*foreground2: #dfdfdf
 *foreground-alt: #3b4252
-*pink: #e60053
+*softPink: #e60053
+*pink: #d85dc0 
+*pink2: #b934a0 
 *orange: #FF7902
 *magenta: #b48ead
 *cyan: #88c0d0
@@ -22,33 +27,6 @@
 *strongYellow: #ffa400
 *blue: #0a6cf5
 *materialBlue: #61afef
-
-! Urxtv colors
-!Black
-st.color0:#646464
-st.color8:#646464
-!Red
-st.color1:#f58e8e
-st.color9:#f58e8e
-!Green
-st.color2:#a9d3ab
-st.color10: #a9d3ab
-!Yellow
-st.color3:#fed37e
-st.color11:#fed37e
-!Blue
-st.color4:#7aabd4
-st.color12:#7aabd4
-!Magenta
-st.color5:#d6add5
-st.color13:#d6add5
-!Cyan
-st.color6:#79d4d5
-st.color14:#79d4d5
-!White
-st.color7:#d4d4d4
-st.color15:#d4d4d4
-
 *grey: #646464
 *pastelRed: #f58e8e
 *pastelGreen: #a9d3ab
@@ -57,6 +35,42 @@ st.color15:#d4d4d4
 *pastelPurple: #d6add5
 *turquoise: #79d4d5
 *lightGrey: #d4d4d4
+
+
+! st colors
+!Black
+!st.color0:#646464
+st.color0:#000000
+st.color8:#5c6370
+!Red
+st.color1:#e06c75
+st.color9:#e06c75
+!st.color9:#f58e8e
+!Green
+st.color2:#98c379
+st.color10:#98c379
+!st.color10: #8AE234
+!st.color10: #a9d3ab
+!Yellow
+st.color3:#d19a66
+st.color11:#d19a66
+!st.color11:#fed37e
+!Blue
+st.color4:#61afef
+st.color12:#61afef
+!st.color12:#7aabd4
+!Magenta
+st.color5:#c678dd
+st.color13:#c678dd
+!st.color13:#d6add5
+!Cyan
+st.color6:#56b6c2
+st.color14:#56b6c2
+!st.color14:#79d4d5
+!White
+st.color7:#abb2bf
+st.color15:#fffefe
+!st.color15:#d4d4d4
 
 
 ! Fonts
@@ -68,6 +82,12 @@ polybar.notoFont: NotoSansDisplay Nerd Font:pixelsize=11;2
 polybar.emojiFont: NotoEmoji Nerd Font:pixelsize=11;2
 i3wm.font1: FontAwesome 10
 i3wm.font2: System San Francisco Display 10
-st.font: monospace:pixelsize=14
+st.font: SFMono:size=14:antialias=true
+st.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
+st.awesomeFont2: Font Awesome 5 Free:pixelsize=11
+st.awesomeFont3: Font Awesome 5 Brands:pixelsize=11
+st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
+st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
+st.powerlineFont: SFMonoPowerline:pixelsize=11
 
 
