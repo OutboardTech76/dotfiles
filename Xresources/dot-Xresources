@@ -4,6 +4,7 @@
 !   
 ! Color theme
 *background: #282c34
+!*background: #282c34
 *background-alt: #3f4653
 *background-alt2: #3b4252
 *background-alt3: #444
@@ -39,6 +40,7 @@
 
 
 ! st colors
+st.cursor: #abb2bf
 !Black
 !st.color0:#646464
 st.color0:#000000

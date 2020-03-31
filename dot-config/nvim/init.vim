@@ -193,4 +193,3 @@ syntax on
 syntax enable
 
 colorscheme onedark 
- 
