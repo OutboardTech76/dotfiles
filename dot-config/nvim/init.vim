@@ -140,6 +140,9 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/dotfiles/dot-config/i3/config set filetype=i3config
 aug end
 
+" Rofi syntax highlighting
+au BufNewFile,BufRead /*.rasi setf css
+
 " Run xrdb when Xresources are updated
 autocmd BufWritePost ~/.Xresources,~/dotfiles/Xresources/dot-Xresources !xrdb %
 
