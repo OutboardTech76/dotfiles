@@ -3,11 +3,9 @@
 rofi_command="rofi -theme themes/i3layoutmenu.rasi"
 
 ### Options ###
-stacked=""
-#stacked=""
-tabbed=""
-split=""
-#split="﬿"
+stacked="  "
+tabbed="  "
+split=" ﬿ "
 # Variable passed to rofi
 options="$stacked\n$tabbed\n$split"
 
