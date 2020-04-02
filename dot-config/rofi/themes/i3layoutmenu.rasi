@@ -1,18 +1,21 @@
-
-/* import colorsheme and common settings */
-@import "commonConf.rasi"
 @import "shared/colorschemes/material.rasi"
 
 *{
     background-color: @background;
     text-color: @text-white;
-    font: @icon-font;
+    icon-font: "NotoSansDisplay Nerd Font 60";
+    option-window-padding: 0px 0px;
+    option-element-padding: 02px -00px 02px -58px;
+    option-space: 30px;
+    border-radius: 44px;
 }
 #window {
+    padding: @option-window-padding;
+    font: @icon-font;
+    width: 20.54%;
+    height: 10.60%;
+    location: center;
     children: [ horibox ];
-    padding: @option-3-window-padding;
-    width: 100%;
-    height: 100%;
 }
 #horibox {
     children: [ listview ];
@@ -23,7 +26,7 @@
     lines: 3;
 }
 #element {
-    padding: @option-icon-size;
+    padding: @option-element-padding;
     background-color: @iconBackground;
 }
 #element.selected {
