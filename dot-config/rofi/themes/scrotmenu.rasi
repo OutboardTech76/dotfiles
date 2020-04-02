@@ -1,16 +1,22 @@
-@import "commonConf.rasi"
 @import "shared/colorschemes/material.rasi"
 
 * {
+    icon-font: "Font Awesome 5 Free Solid 48";
     background-color: @background;
     text-color: @text-white;
-    font: @icon-font;
+    option-window-padding: 0px 0px;
+    option-element-padding: 25px -10px 25px -55px; /* Rect icons */
+    /*option-element-padding: 28px -10px 28px -55px;*/ /* Square icons */
+    option-space: 30px;
+    border-radius: 44px;
 }
 #window {
+    padding: @option-window-padding;
+    width: 21.41%;
+    height: 10.60%;
+    font: @icon-font;
     children: [ horibox ];
-    padding: @option-3-window-padding;
-    width: 100%;
-    height: 100%;
+    location: center;
 }
 #horibox {
     children: [ listview ];
@@ -21,7 +27,7 @@
     lines: 3;
 }
 #element {
-    padding: @option-icon-size;
+    padding: @option-element-padding;
     background-color: @background-light;
 }
 #element.selected {
