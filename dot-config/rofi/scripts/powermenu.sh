@@ -3,18 +3,23 @@
 rofi_command="rofi -theme themes/powermenu.rasi"
 
 ### Options ###
-#power_off=""
-power_off=""
+power_off="  "
+#power_off=" ⏻ "
+#power_off="  "
 #reboot=""
-reboot=""
-#lock=""
-lock=""
+reboot="  "
+#reboot=" ﰇ"
+#lock="  "
+lock="  "
+#lock="  "
+#lock="  "
 #suspend="鈴"
-log_out=""
-#log_out="" 
+#log_out="  "
+#log_out="  "
+log_out="  " 
+ 
 # Variable passed to rofi
 options="$power_off\n$reboot\n$lock\n$log_out"
-#options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 
 #### Set lock screen #####
 icon=$HOME/.config/rofi/scripts/lock.png
