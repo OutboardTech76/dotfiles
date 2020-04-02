@@ -1,18 +1,18 @@
 @import "shared/colorschemes/material.rasi"
 
 * {
-    icon-font: "Font Awesome 5 Free Solid 48";
+    /*icon-font: "Font Awesome 5 Free Solid 48";*/
+    icon-font: "NotoSansDisplay Nerd Font 60";
     background-color: @background;
     text-color: @text-white;
     option-window-padding: 0px 0px;
-    option-element-padding: 25px -10px 25px -55px; /* Rect icons */
-    /*option-element-padding: 28px -10px 28px -55px;*/ /* Square icons */
+    option-element-padding: 02px -12px 02px -59px;
     option-space: 30px;
     border-radius: 44px;
 }
 #window {
     padding: @option-window-padding;
-    width: 21.41%;
+    width: 20.53%;
     height: 10.60%;
     font: @icon-font;
     children: [ horibox ];
