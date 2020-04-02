@@ -1,22 +1,20 @@
-
-/*@import "commonConf.rasi"*/
 @import "shared/colorschemes/material.rasi"
-/*
+
 * {
     background-color: @background;
     text-color: @text-white;
-    icon-font: "Font Awesome 5 Free Solid 40";
-    option-4-window-padding: 0px 10px;
+    icon-font: "NotoSansDisplay Nerd Font 60";
+    option-4-window-padding: 0px 0px;
     option-space: 30px;
-    option-element-padding: 3px -50px -1px -49px;
-    border-radius: 14px;
+    option-element-padding: 10px -30px 10px -57px; 
+    border-radius: 44px;
 }
 #window {
     children: [ horibox ];
     padding: @option-4-window-padding;
     font: @icon-font;
-    width: 25%;
-    height: 10%;
+    width: 27.87%;
+    height: 12.05%;
     location: center;
 }
 #horibox {
@@ -26,66 +24,12 @@
     layout: horizontal;
     spacing: @option-space;
     lines: 4;
-    dynamic: true;
 }
 #element {
     padding: @option-element-padding;
-    border: 1px;
     background-color: @iconBackground;
-    background-color: @background-light;
 }
 #element.selected {
-background-color: @accent;
-background-color: @blue;
-text-color: @text-white;
-}*/
- * {
-  /* General */
-  text-font:                            "System San Francisco Display 12";
-  icon-font:                            "Font Awesome 5 Free 40";
-  icon-font-small:                      "Awesome Font 24";
-
-  option-6-listview-spacing:            10px;
-
-  menu-window-padding:                   5px 15px;
-  menu-inputbar-margin:                  10px 0px;
-  menu-prompt-padding:                   10px 20px 10px 20px;
-  menu-prompt-margin:                    0px 0px 0px -2px;
-  menu-element-border:                   10px;
-  menu-element-padding:                  25px 0px 20px -0px;
-  border-radius: 14px;
-}
-
-/* ########### */
-
-#window {
-  width: 56%;
-  height: 33%;
-  anchor: center;
-  location: center;
-  children: [horibox];
-}
-
-/* ########### */
-
-* {
-  background-color: @background;
-  text-color: @foreground;
-  font: @icon-font;
-}
-
-#horibox {
-  children: [ listview ];
-}
-#listview {
-  layout: horizontal;
-  lines: 4;
-}
-#element {
-  padding: @option-element-padding;
-  background-color: @background-light;
-}
-#element.selected {
-  background-color: @blue;
-  text-color: @background;
+    background-color: @blue;
+    text-color: @text-white;
 }
