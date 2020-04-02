@@ -15,7 +15,8 @@
   background-light:       rgba( 30, 33, 39, 100% );
    
   /* Row background color */
-  background: rgba( 30, 33, 39, 0% );
+  /*background: rgba( 30, 33, 39, 0% );*/
+  background: #55ff55;
   /*background: rgba( 30, 33, 39, 5% );*/
    
   background-focus: #282828;

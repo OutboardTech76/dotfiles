@@ -47,7 +47,7 @@
     /* Center icons in the screen: */
     option-3-window-padding: 507px 810px;
     /*option-4-window-padding: 417px 709px;*/
-    option-4-window-padding: 507px 759px;
+    option-4-window-padding: 20px 0px;
 
 }
 
