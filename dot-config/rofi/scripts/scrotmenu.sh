@@ -3,13 +3,14 @@
 rofi_command="rofi -theme themes/scrotmenu.rasi"
 
 ### Options ###
-screen=""
-area=""
-#area=""
-window=""
-#window=""
+screen="  "
+area="  "
+window="  "
 # Variable passed to rofi
 options="$screen\n$area\n$window"
+
+# create screenshots folder
+mkdir -p $HOME/Pictures/screenshots
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
