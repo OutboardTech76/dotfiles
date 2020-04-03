@@ -6,7 +6,7 @@
     icon-font: "NotoSansDisplay Nerd Font 60";
     option-4-window-padding: 0px 0px;
     option-space: 30px;
-    option-element-padding: 10px -30px 10px -57px; 
+    option-element-padding: 02px -30px 02px -57px; 
     border-radius: 44px;
 }
 #window {
@@ -14,7 +14,7 @@
     padding: @option-4-window-padding;
     font: @icon-font;
     width: 27.87%;
-    height: 12.05%;
+    height: 10.60%;
     location: center;
 }
 #horibox {
