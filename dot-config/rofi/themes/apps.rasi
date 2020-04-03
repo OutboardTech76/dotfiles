@@ -30,6 +30,6 @@
     background-color: @iconBackground;
 }
 #element.selected {
-    background-color: @blue;
+    background-color: @pink;
     text-color: @text-white;
 }
