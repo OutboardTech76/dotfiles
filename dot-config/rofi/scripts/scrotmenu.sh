@@ -3,8 +3,12 @@
 rofi_command="rofi -theme themes/scrotmenu.rasi"
 
 ### Options ###
-screen="  "
-area="  "
+#screen="  "
+screen="  "
+#area="  "
+#area="  "
+#area="  "
+area="  "
 window="  "
 # Variable passed to rofi
 options="$screen\n$area\n$window"
