@@ -81,9 +81,10 @@ mode "$modeLauncher" {
     bindsym s exec pavucontrol #Audio controller
 
     bindsym Escape mode "default"
-    bindsym $mod+o mode "default"
+    #bindsym $mod+o mode "default"
+
 }
-bindsym $mod+o mode "$modeLauncher"
+#bindsym $mod+o mode "$modeLauncher"
 
  
 # Rofi menu launcher
@@ -101,6 +102,8 @@ mode "$modeRofi" {
 # Use Shift+d to launch all rofi types. Use d to launch rofi run type
 bindsym $mod+Shift+d mode "$modeRofi"
 #bindsym $mod+d exec rofi -show run -config $rofiTheme
+#byndsym $mod+o exec --no-startup-id $HOME/.config/rofi/scripts/commonApps.sh
+bindsym $mod+o exec --no-startup-id $HOME/.config/rofi/scripts/commonApps.sh
 bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/scripts/appsmenu.sh
 bindsym $mod+c exec --no-startup-id $HOME/.config/rofi/scripts/i3layoutmenu.sh
 bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/scripts/powermenu.sh
