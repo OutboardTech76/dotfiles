@@ -9,23 +9,16 @@
   pink: #de0d92;
   purple2: #6665dd;
   accent:           #61AFEF;
+  foreground: #e5e9f0;
 
   /* Icons background color */
   iconBackground: rgba(30, 33, 39, 100%);
-  background-light:       rgba( 30, 33, 39, 100% );
+  /*iconBackground: #282c34;*/
    
-  /* Row background color */
-  /*background: rgba( 30, 33, 39, 0% );*/
-  background: #55ff55;
-  /*background: rgba( 30, 33, 39, 5% );*/
-   
+  /* Background color */
+  background: rgba( 30, 33, 39, 0% );
   background-focus: #282828;
-  foreground:       #888888;
   foreground-list: #CEDDF3;
    
   text-white: #e8f1f2;
-  /*text-white: #CEDDF3;*/
-   
-  on:               #44ad4d;
-  off:              #e34039;
 }
