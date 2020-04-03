@@ -1,49 +1,50 @@
-/**
- * This theme is intended for a 6x2 items list menu with a headerbar.
- */
-@import "commonConf.rasi"
 @import "shared/colorschemes/material.rasi"
  
 * {
-  /*background-color: @transparentBackground;*/
   background-color: @background;
   text-color: @text-white;
+  icon-font: "NotoSansDisplay Nerd Font 60";
+  text-font: "System San Francisco Display 12";
+  option-inputbar-margin: 0.1%;
+  option-prompt-padding: 1.65% 0.4%;
+  option-entry-padding: 1.65% 0.7%;
+  option-element-padding: 01.80% 01.10%;
+  option-element-margin: 0.1% 0.3%;
+  option-window-padding: 00px 00px;
   font: @text-font;
+  border-radius: 14px;
 }
 #window {
-  padding: @list-6-window-padding;
-  width: 100%;
-  height: 100%;
+  padding: @option-window-padding;
+  width: 33.00%;
+  height: 33.71%;
+  y-offset: 05.00%;
+  location: center;
   background-color: @background;
 }
- 
-inputbar,
-prompt,
-textbox-prompt-colon,
-entry {
+inputbar, prompt, textbox-prompt-colon, entry {
   background-color: @iconBackground;
 }
 #inputbar {
+  margin: @option-inputbar-margin;
   children: [ prompt, textbox-prompt-colon, entry ];
-  margin: @inputbar-margin;
 }
 #prompt {
-  padding: @prompt-padding;
+  padding: @option-prompt-padding;
   background-color: @purple2;
   text-color: @text-white;
  
 }
 #textbox-prompt-colon {
   expand: false;
-  padding: 1px;
 }
 #entry {
   text-color: @text-white;
-  padding: @entry-padding;
+  padding: @option-entry-padding;
 }
 #element {
-  padding: @list-element-padding;
-  margin: @list-element-margin;
+  padding: @option-element-padding;
+  margin: @option-element-margin;
   background-color: @iconBackground;
 }
 #element.selected {
