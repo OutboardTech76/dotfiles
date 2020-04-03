@@ -1,0 +1,35 @@
+@import "shared/colorschemes/material.rasi"
+
+* {
+    background-color: @background;
+    text-color: @text-white;
+    icon-font: "NotoSansDisplay Nerd Font 60";
+    option-4-window-padding: 0px 0px;
+    option-space: 30px;
+    option-element-padding: 02px -01px 02px -60px; 
+    border-radius: 44px;
+}
+#window {
+    children: [ horibox ];
+    padding: @option-4-window-padding;
+    font: @icon-font;
+    width: 27.87%;
+    height: 10.60%;
+    location: center;
+}
+#horibox {
+    children: [ listview ];
+}
+#listview {
+    layout: horizontal;
+    spacing: @option-space;
+    lines: 4;
+}
+#element {
+    padding: @option-element-padding;
+    background-color: @iconBackground;
+}
+#element.selected {
+    background-color: @blue;
+    text-color: @text-white;
+}
