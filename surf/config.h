@@ -7,6 +7,10 @@ static char *certdir        = "~/.surf/certificates/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
 static char *historyfile    = "~/.surf/history.txt";
+static char *defaultSearchEngine = "https://www.google.com/search?q=";
+static SearchEngine searchengines[] = {
+    {"g", "https://www.google.com/search?q="},
+};
 
 /* Webkit default features */
 /* Highest priority value will be used.
