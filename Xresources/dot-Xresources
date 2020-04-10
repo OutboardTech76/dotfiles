@@ -4,7 +4,6 @@
 !   
 ! Color theme
 *background: #282c34
-!*background: #282c34
 *background-alt: #3f4653
 *background-alt2: #3b4252
 *background-alt3: #444
@@ -92,6 +91,12 @@ st.awesomeFont3: Font Awesome 5 Brands:pixelsize=11
 st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
+*.Tabbed.tabFont: monospace:size=16
 
+! Tabbed settings
+vimb*tabwidth: 150
+vimb*tabAfter: >
+vimb*tabBefore: <
+vimb*tabTitletrim: ...
 
 
