@@ -1020,8 +1020,6 @@ setup(void)
 {
 	int bitm, tx, ty, tw, th, dh, dw, isfixed;
 	XWMHints *wmh;
-	XClassHint class_hint = {opt_name ? opt_name : wmname,
-	                    opt_class ? opt_class : "Tabbed"};
 	XSizeHints *size_hint;
 
 	/* clean up any zombies immediately */
@@ -1096,8 +1094,8 @@ setup(void)
 	             SubstructureRedirectMask);
 	xerrorxlib = XSetErrorHandler(xerror);
 
-	/*class_hint.res_name = "tabbed";*/
-	/*class_hint.res_class = "Tabbed";*/
+    XClassHint class_hint = {opt_name ? opt_name : wmname,
+                        opt_class ? opt_class : "Tabbed"};
 	XSetClassHint(dpy, win, &class_hint);
 
 	size_hint = XAllocSizeHints();
@@ -1462,7 +1460,6 @@ main(int argc, char *argv[])
 
     config_init();
 	setup();
-	printf("0x%lx\n", win);
 	fflush(NULL);
 
 	if (detach) {
