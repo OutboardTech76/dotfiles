@@ -16,6 +16,7 @@
 #include <X11/Xutil.h>
 #include <X11/XKBlib.h>
 #include <X11/Xft/Xft.h>
+#include <X11/Xresource.h>
 
 #include "arg.h"
 
@@ -85,6 +86,19 @@ typedef struct {
 	Bool urgent;
 	Bool closed;
 } Client;
+
+/* Xresources preferences */
+enum resource_type {
+    STRING = 0,
+    INTEGER = 1,
+    FLOAT = 2,
+};
+
+typedef struct {
+    char *name;
+    enum resource_type type;
+    void *dst; 
+} ResourcePref;
 
 /* function declarations */
 static void buttonpress(const XEvent *e);
@@ -171,6 +185,8 @@ static int cmd_append_pos;
 static char winid[64];
 static char **cmd;
 static char *wmname = "tabbed";
+static char *opt_name = NULL;
+static char *opt_class = NULL;
 static const char *geometry;
 static Bool barvisibility = False;
 
@@ -1004,7 +1020,8 @@ setup(void)
 {
 	int bitm, tx, ty, tw, th, dh, dw, isfixed;
 	XWMHints *wmh;
-	XClassHint class_hint;
+	XClassHint class_hint = {opt_name ? opt_name : wmname,
+	                    opt_class ? opt_class : "Tabbed"};
 	XSizeHints *size_hint;
 
 	/* clean up any zombies immediately */
@@ -1079,8 +1096,8 @@ setup(void)
 	             SubstructureRedirectMask);
 	xerrorxlib = XSetErrorHandler(xerror);
 
-	class_hint.res_name = wmname;
-	class_hint.res_class = "tabbed";
+	/*class_hint.res_name = "tabbed";*/
+	/*class_hint.res_class = "Tabbed";*/
 	XSetClassHint(dpy, win, &class_hint);
 
 	size_hint = XAllocSizeHints();
@@ -1301,6 +1318,58 @@ xsettitle(Window w, const char *str)
 	}
 }
 
+int
+resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst) {
+    char **sdst = dst;
+    int *idst = dst;
+    float *fdst = dst;
+
+    char fullname[256];
+    char fullclass[256];
+    char *type;
+    XrmValue ret;
+
+    snprintf(fullname, sizeof(fullname), "%s.%s",
+            opt_name ? opt_name : wmname, name);
+    snprintf(fullclass, sizeof(fullclass), "%s.%s",
+            opt_class ? opt_class : "Tabbed", name);
+    fullname[sizeof(fullname) - 1] = fullclass[sizeof(fullclass) -1] = '\0';
+
+    XrmGetResource(db, fullname, fullclass, &type, &ret);
+    if (ret.addr == NULL || strncmp("String", type, 64))
+        return 1;
+
+    switch (rtype) {
+    case STRING:
+            *sdst = ret.addr;
+            break;
+    case INTEGER:
+            *idst = strtoul(ret.addr, NULL, 10);
+            break;
+    case FLOAT:
+            *fdst = strtof(ret.addr, NULL);
+            break;
+    }
+    return 0;
+}
+
+void 
+config_init(void) {
+     
+    char *resm;
+    XrmDatabase db;
+    ResourcePref *p;
+
+    XrmInitialize();
+    resm = XResourceManagerString(dpy);
+    if (!resm)
+        return;
+
+    db = XrmGetStringDatabase(resm);
+    for (p = resources; p < resources + LENGTH(resources); p++)
+        resource_load(db, p->name, p->type, p->dst);
+}
+
 void
 usage(void)
 {
@@ -1315,6 +1384,7 @@ main(int argc, char *argv[])
 	Bool detach = False;
 	int replace = 0;
 	char *pstr;
+
 
 	ARGBEGIN {
 	case 'c':
@@ -1390,6 +1460,7 @@ main(int argc, char *argv[])
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("%s: cannot open display\n", argv0);
 
+    config_init();
 	setup();
 	printf("0x%lx\n", win);
 	fflush(NULL);
