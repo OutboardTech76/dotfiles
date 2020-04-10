@@ -2,3 +2,10 @@ dot-config/nvim/bundle
 dot-config/ranger/bookmarks
 dot-config/ranger/history
 dot-config/ranger/tagged
+dot-config/vimb/*
+!/dot-config/vimb/config
+!/dot-config/vimb/README.md
+!/dot-config/vimb/style.css
+tabbed/tabbed
+tabbed/*.o
+tabbed/xembed
