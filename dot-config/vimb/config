@@ -1,10 +1,10 @@
 # Homepage that vimb opens if started without a URI.
-set home-page=about:blank
+set home-page=https://www.google.com/
 
 # Path to the default download directory. If no download directory is set,
 # download will be written into current directory. The following pattern will
 # be expanded if the download is started '~/', '~user', '$VAR' and '${VAR}'.
-set download-path=~/tmp/
+set download-path=$HOME/Downloads/
 
 # Command with placeholder '%s' called if form field is opened with $EDITOR to
 # spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
@@ -19,7 +19,7 @@ set spell-checking=true
 
 # Set comma separated list of spell checking languages to be used for
 # spell checking.
-set spell-checking-languages=en,de
+set spell-checking-languages=en,es
 
 # Enable or disable support for WebGL on pages.
 set webgl=true
@@ -41,39 +41,52 @@ set sans-serif-font=DejaVu Sans
 set serif-font=DejaVu Serif
 
 # The default font size used to display text.
-set font-size=16
+set font-size=14
 
 # Default font size for the monospace font.
 set monospace-font-size=13
 
 # Default Full-Content zoom level in percent. Default is 100.
-set default-zoom=120
+set default-zoom=100
+
+set hardware-acceleration-policy=ondemand
+# Number off pixels scroll using 'j''k'
+set scroll-step=30
+# Increase scroll using mouse wheel
+set scroll-multiplier=2
+
+set show-titlebar=false
+set smooth-scrolling=true
+set stylesheet=true
+
 
 # Shortcuts allow the opening of an URI built up from a named template with
 # additional parameters.
-shortcut-add duck=https://duckduckgo.com/?q=$0
-shortcut-add d=http://dict.cc/?s=$0
-shortcut-add g=https://encrypted.google.com/search?q=$0
-shortcut-add y=http://www.youtube.com/results?search_query=$0
-shortcut-add s=https://www.startpage.com/do/dsearch?query=$0
+shortcut-add google=https://encrypted.google.com/search?q=$0
+shortcut-add y=https://www.youtube.com/results?search_query=$0
 
 # Set the shortcut as the default, that is the shortcut to be used if no
 # shortcut is given and the string to open is not an URI.
-shortcut-default duck
+shortcut-default google
 
 # Map page zoom in normal mode to keys commonly used across applications
 # + (zoom in), - (zoom out), = (zoom reset)
 nmap + zI
 nmap - zO
 nmap = zz
+# Map refresh button
+nmap <F5> r 
+nmap b <C-o>
+nmap <C-n> :set stylesheet=true<CR>
+nmap <C-m> :set stylesheet=false<CR>
 
-# GUI color settings
-# Color scheme: Base16 Eighties (https://github.com/chriskempson/base16)
-set completion-css=color:#d3d0c8;background-color:#393939;font:12pt DejaVu Sans Mono;
-set completion-hover-css=color:#d3d0c8;background-color:#393939;font:12pt DejaVu Sans Mono;
+
+# GUI color settings. Uses same background as Xresources
+set completion-css=color:#d3d0c8;background-color:#282c34;font:12pt DejaVu Sans Mono;
+set completion-hover-css=color:#d3d0c8;background-color:#282c34;font:12pt DejaVu Sans Mono;
 set completion-selected-css=color:#d3d0c8;background-color:#515151;font:12pt DejaVu Sans Mono;
-set input-css=color:#d3d0c8;background-color:#393939;font:12pt DejaVu Sans Mono;
-set input-error-css=color:#f2777a;background-color:#393939;font:12pt DejaVu Sans Mono;
-set status-css=color:#ffcc66;background-color:#393939;font:12pt DejaVu Sans Mono;
-set status-ssl-css=color:#99cc99;background-color:#393939;font:12pt DejaVu Sans Mono;
-set status-ssl-invalid-css=color:#f2777a;background-color:#393939;font:12pt DejaVu Sans Mono;
+set input-css=color:#d3d0c8;background-color:#282c34;font:12pt DejaVu Sans Mono;
+set input-error-css=color:#f2777a;background-color:#282c34;font:12pt DejaVu Sans Mono;
+set status-css=color:#ffcc66;background-color:#282c34;font:12pt DejaVu Sans Mono;
+set status-ssl-css=color:#98c379;background-color:#282c34;font:12pt DejaVu Sans Mono;
+set status-ssl-invalid-css=color:#f2777a;background-color:#282c34;font:12pt DejaVu Sans Mono;
