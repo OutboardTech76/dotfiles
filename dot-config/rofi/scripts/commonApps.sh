@@ -18,7 +18,7 @@ case $chosen in
         thunderbird &
         ;;
     $browser)
-        firefox &
+        tabbed -c -n vimb vimb -e &
         ;;
     $files)
         nautilus &
