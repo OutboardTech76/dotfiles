@@ -28,3 +28,7 @@ tabbed/xembed
 
 st/st
 st/*.o
+
+dmenu/*.o
+dmenu/dmenu
+dmenu/stest
