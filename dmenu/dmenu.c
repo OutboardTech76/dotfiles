@@ -501,13 +501,25 @@ insert:
 		}
 		break;
 	case XK_Tab:
-		if (!sel)
-			return;
-		strncpy(text, sel->text, sizeof text - 1);
-		text[sizeof text - 1] = '\0';
-		cursor = strlen(text);
-		match();
+        if (sel && sel->right && (sel = sel->right) == next) { /* Down */
+            curr = next;
+            calcoffsets();
+        }
 		break;
+    case XK_ISO_Left_Tab: /*Shift + Tab */
+		if (sel && sel->left && (sel = sel->left)->right == curr) {
+			curr = prev;
+			calcoffsets();
+		}
+        break;
+	/*case XK_Tab:*/
+		/*if (!sel)*/
+			/*return;*/
+		/*strncpy(text, sel->text, sizeof text - 1);*/
+		/*text[sizeof text - 1] = '\0';*/
+		/*cursor = strlen(text);*/
+		/*match();*/
+		/*break;*/
 	}
 
 draw:
