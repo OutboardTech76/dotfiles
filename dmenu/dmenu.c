@@ -153,7 +153,7 @@ drawmenu(void)
         x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
     }
 	/* draw input field */
-    if (!textBox) {
+    if (!textbox) {
         w = (lines > 0 || !matches) ? mw - x : inputw;
         drw_setscheme(drw, scheme[SchemeNorm]);
         drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
@@ -170,7 +170,7 @@ drawmenu(void)
 			drawitem(item, x, y += bh, mw - x);
 	} else if (matches) {
 		/* draw horizontal list */
-        if(!textBox)
+        if(!textbox)
             x += inputw;
         w = TEXTW("<");
         if (curr->left) {
@@ -179,14 +179,13 @@ drawmenu(void)
             x += w;
         }
 		for (item = curr; item != next; item = item->right)
-			/*x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x ));*/
             x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">")));
         if (next) {
             w = TEXTW(">");
             drw_setscheme(drw, scheme[SchemeNorm]);
             drw_text(drw, mw - w, 0, w, bh, lrpad / 2, ">", 0);
         }
-	}
+    }
 	drw_map(drw, win, 0, 0, mw, mh);
 }
 
@@ -411,7 +410,7 @@ keypress(XKeyEvent *ev)
 	switch(ksym) {
 	default:
 insert:
-		if (!iscntrl(*buf))
+		if (!textbox && !iscntrl(*buf)) /* If -t option disable text input */
 			insert(buf, len);
 		break;
 	case XK_Delete:
@@ -682,8 +681,8 @@ setup(void)
         }
 	}
 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
-	inputw = MIN(inputw, mw/3);
-	match();
+    inputw = MIN(inputw, mw/3);
+    match();
 
 	/* create menu window */
 	swa.override_redirect = True;
@@ -742,8 +741,8 @@ main(int argc, char *argv[])
 			fast = 1;
 		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
 			centered = 1;
-        else if (!strcmp(argv[i], "-t"))   /* Don't show textbox */
-            textBox = 1;
+        else if (!strcmp(argv[i], "-t"))   /* Disable input textbox*/
+            textbox = 1;
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
