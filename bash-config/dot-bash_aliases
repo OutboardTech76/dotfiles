@@ -19,3 +19,6 @@ alias clearImg='sudo rm -r images && mkdir images'
 alias ei='nvim ~/.config/i3/config'
 alias ep='nvim ~/.config/polybar/config'
 alias ec='nvim ~/.config/compton.conf'
+
+# Git alias
+alias gs='git status'
