@@ -22,3 +22,6 @@ alias ec='nvim ~/.config/compton.conf'
 
 # Git alias
 alias gs='git status'
+
+# Common alias
+alias ..='cd ..'
