@@ -40,6 +40,7 @@ static int bh, mw, mh;
 static int dmx = 0; /* put dmenu at this x offset */
 static int dmy = 0; /* put dmenu at this y offset (measured from the bottom if topbar is 0) */
 static unsigned int dmw = 0; /* make dmenu this wide */
+static unsigned int ww = 0; /* make window this wide */
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
@@ -615,7 +616,7 @@ static void
 setup(void)
 {
 	int x, y, i, j;
-	unsigned int du;
+	unsigned int du, windowWidth;
 	XSetWindowAttributes swa;
 	XIM xim;
 	Window w, dw, *dws;
@@ -700,7 +701,8 @@ setup(void)
 	swa.override_redirect = True;
 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
-	win = XCreateWindow(dpy, parentwin, x, y, mw, mh, 0,
+    windowWidth = (ww>0) ? ww : mw;
+	win = XCreateWindow(dpy, parentwin, x, y, windowWidth, mh, 0,
 	                    CopyFromParent, CopyFromParent, CopyFromParent,
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
 	XSetClassHint(dpy, win, &ch);
@@ -730,8 +732,8 @@ setup(void)
 static void
 usage(void)
 {
-	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
-          "             [-h height] [-x xoffset] [-y yoffset] [-w width]\n"
+	fputs("usage: dmenu [-bfivtc] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+          "             [-h height] [-x xoffset] [-y yoffset] [-w width] [-ww windowWidth]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
 	exit(1);
 }
@@ -769,6 +771,8 @@ main(int argc, char *argv[])
 			dmy = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-w"))   /* make dmenu this wide */
 			dmw = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "-ww"))  /* window takes this width */
+            ww = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
