@@ -145,44 +145,47 @@ drawmenu(void)
 	struct item *item;
 	int x = 0, y = 0, fh = drw->fonts->h, w;
 
-	drw_setscheme(drw, scheme[SchemeNorm]);
-	drw_rect(drw, 0, 0, mw, mh, 1, 1);
+    drw_setscheme(drw, scheme[SchemeNorm]);
+    drw_rect(drw, 0, 0, mw, mh, 1, 1);
 
-	if (prompt && *prompt) {
-		drw_setscheme(drw, scheme[SchemeSel]);
-		x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
-	}
+    if (prompt && *prompt) {
+        drw_setscheme(drw, scheme[SchemeSel]);
+        x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
+    }
 	/* draw input field */
-	w = (lines > 0 || !matches) ? mw - x : inputw;
-	drw_setscheme(drw, scheme[SchemeNorm]);
-	drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
+    if (!textBox) {
+        w = (lines > 0 || !matches) ? mw - x : inputw;
+        drw_setscheme(drw, scheme[SchemeNorm]);
+        drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
 
-	curpos = TEXTW(text) - TEXTW(&text[cursor]);
-	if ((curpos += lrpad / 2 - 1) < w) {
-		drw_setscheme(drw, scheme[SchemeNorm]);
-		drw_rect(drw, x + curpos, 2 + (bh-fh)/2, 2, fh - 4, 1, 0);
-	}
-
+        curpos = TEXTW(text) - TEXTW(&text[cursor]);
+        if ((curpos += lrpad / 2 - 1) < w) {
+            drw_setscheme(drw, scheme[SchemeNorm]);
+            drw_rect(drw, x + curpos, 2 + (bh-fh)/2, 2, fh - 4, 1, 0);
+        }
+    }
 	if (lines > 0) {
 		/* draw vertical list */
 		for (item = curr; item != next; item = item->right)
 			drawitem(item, x, y += bh, mw - x);
 	} else if (matches) {
 		/* draw horizontal list */
-		x += inputw;
-		w = TEXTW("<");
-		if (curr->left) {
-			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_text(drw, x, 0, w, bh, lrpad / 2, "<", 0);
-		}
-		x += w;
+        if(!textBox)
+            x += inputw;
+        w = TEXTW("<");
+        if (curr->left) {
+            drw_setscheme(drw, scheme[SchemeNorm]);
+            drw_text(drw, x, 0, w, bh, lrpad / 2, "<", 0);
+            x += w;
+        }
 		for (item = curr; item != next; item = item->right)
-			x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">")));
-		if (next) {
-			w = TEXTW(">");
-			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_text(drw, mw - w, 0, w, bh, lrpad / 2, ">", 0);
-		}
+			/*x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x ));*/
+            x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">")));
+        if (next) {
+            w = TEXTW(">");
+            drw_setscheme(drw, scheme[SchemeNorm]);
+            drw_text(drw, mw - w, 0, w, bh, lrpad / 2, ">", 0);
+        }
 	}
 	drw_map(drw, win, 0, 0, mw, mh);
 }
@@ -652,9 +655,10 @@ setup(void)
 					break;
 
         if (centered) {
-            mw = MIN(MAX(max_textw() + promptw, min_width), info[i].width);
-            x = info[i].x_org + ((info[i].width - mw) / 2);
-            y = info[i].y_org + ((info[i].height - mh) / 2);
+            /*mw = MIN(MAX(max_textw() + promptw, min_width), info[i].width);*/
+            mw = (dmw>0 ? dmw : info[i].width);
+            x = info[i].x_org + ((info[i].width - mw) / 2) + dmx;
+            y = info[i].y_org + ((info[i].height - mh) / 2) + (topbar ? dmy : info[i].height - mh - dmy);
         } else {
             x = info[i].x_org + dmx;
             y = info[i].y_org + (topbar ? dmy : info[i].height - mh - dmy);
@@ -738,6 +742,8 @@ main(int argc, char *argv[])
 			fast = 1;
 		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
 			centered = 1;
+        else if (!strcmp(argv[i], "-t"))   /* Don't show textbox */
+            textBox = 1;
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
