@@ -702,9 +702,12 @@ setup(void)
 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
     windowWidth = (ww>0) ? ww : mw;
-	win = XCreateWindow(dpy, parentwin, x, y, windowWidth, mh, 0,
+	win = XCreateWindow(dpy, parentwin, x, y, windowWidth, mh, border_width,
 	                    CopyFromParent, CopyFromParent, CopyFromParent,
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
+    if (border_width)
+        XSetWindowBorder(dpy, win, scheme[SchemeSel][ColBg].pixel);
+     
 	XSetClassHint(dpy, win, &ch);
 
 
@@ -773,6 +776,8 @@ main(int argc, char *argv[])
 			dmw = atoi(argv[++i]);
         else if (!strcmp(argv[i], "-ww"))  /* window takes this width */
             ww = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "-bw"))  /* border width */
+            border_width = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
