@@ -26,3 +26,20 @@ static unsigned int lineheight = 0;         /* -h option; minimum height of a me
  */
 static const char worddelimiters[] = " ";
 static unsigned int border_width = 0;
+
+
+/* XResources */
+ResourcePref resources[] = {
+    {"font",              STRING,     &fonts[0] },
+    {"normBg",            STRING,     &colors[SchemeNorm][ColBg] },
+    {"normFg",            STRING,     &colors[SchemeNorm][ColFg] },
+    {"selBg",             STRING,     &colors[SchemeSel][ColBg] },
+    {"selFg",             STRING,     &colors[SchemeSel][ColFg] },
+    {"outBg",             STRING,     &colors[SchemeOut][ColBg] },
+    {"outFg",             STRING,     &colors[SchemeOut][ColFg] },
+    {"border",            INTEGER,    &border_width }
+
+
+};
+
+
