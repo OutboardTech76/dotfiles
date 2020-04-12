@@ -5,9 +5,15 @@ cache="$cachedir/dmenu_run"
 
 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
 
-IFS=:
-if stest -dqr -n "$cache" $PATH; then
-	stest -flx $PATH | sort -u | tee "$cache"
-else
-	cat "$cache"
-fi
+#IFS=:
+#if stest -dqr -n "$cache" $PATH; then
+	#stest -flx $PATH | sort -u | tee "$cache"
+#else
+	#cat "$cache"
+#fi
+echo $PATH | tr ':' '\n' | uniq | sed 's#$#/#' | # List directories in $PATH
+    xargs ls -lu --time-style=+%s |              # Add atime epoch
+    awk '/^(-|l)/ { print $6, $7 }' |            # Only print timestamp and name
+    sort -rn | cut -d' ' -f 2 | tee "$cache"
+
+cat "$cache"
