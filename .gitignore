@@ -32,3 +32,5 @@ st/*.o
 dmenu/*.o
 dmenu/dmenu
 dmenu/stest
+dmenu/scripts/*
+!/dmenu/scripts/*.sh
