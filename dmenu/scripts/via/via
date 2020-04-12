@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Declare variables
+cache="$HOME/.cache/via"
+
+# Check cache file
+if [[ ! -e "$cache" ]]; then
+    find "$HOME" -mindepth 1 \( \
+        -name ".*" -o \
+        -path "$HOME/Desktop" \
+        \) -prune -o -print | sort > "$cache"
+fi
+
+# Pass cache to dmenu and the result to another sh file that selects what to do with that
+cat "$cache" | dmenu -p "via" -i -c -l 5 -n via -w 600 | via-open
+

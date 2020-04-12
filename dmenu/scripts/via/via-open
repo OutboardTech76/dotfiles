@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+exec &> /dev/null
+terminal="termite"
+editor="nvim"
+browser="vimb"
+
+while read arg; do
+	# first try matching by filename or pathname
+	case "${arg,,}" in
+		http*)
+			"$browser" "$arg" &
+			;;
+		[^/]*) # doesn't start with '/'
+			sh -c "$arg"
+			;;
+		*.txt|*.py|*.c|*.cc|*.tex|*.log|*.sh|*.csv|*.conf)
+            "$terminal" -e ""$editor" "$arg"" &
+			;;
+		*.pdf | *.epub)
+			mupdf "$arg" &
+			;;
+		*.od[tsp]|*.doc|*.docx|*.ppt|*.pptx|*.xls|*.xlsx)
+			libreoffice "$arg" &
+			;;
+		*)
+			# then try matching by mimetype
+			mimetype=$(file -Lb --mime-type "$arg")
+			case "$mimetype" in
+				text/html)
+					 "$browser" "$arg" &
+					;;
+				text/* | inode/x-empty | message/rfc822)
+                    "$terminal" -e ""$editor" "$arg"" &
+					;;
+				inode/directory)
+                    cd "$arg" 
+                    "$terminal"  &
+                    cd -
+					;;
+				image/*)
+					sxiv "$arg" &
+					;;
+				*)
+					exit 1
+					;;
+			esac
+			;;
+	esac
+done
