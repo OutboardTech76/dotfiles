@@ -3,7 +3,7 @@
 dmenu \- dynamic menu
 .SH SYNOPSIS
 .B dmenu
-.RB [ \-bfiv ]
+.RB [ \-bfivct ]
 .RB [ \-l
 .IR lines ]
 .RB [ \-m
@@ -22,6 +22,10 @@ dmenu \- dynamic menu
 .IR color ]
 .RB [ \-w
 .IR windowid ]
+.RB [ \-n
+.IR name ]
+.RB [ \-ww
+.IR windoWidth ]
 .P
 .BR dmenu_run " ..."
 .SH DESCRIPTION
@@ -42,6 +46,9 @@ dmenu appears at the bottom of the screen.
 .TP
 .B \-c
 dmenu appears centered on the screen.
+.TP
+.B \-t
+disable dmenu textbox.
 .TP
 .B \-f
 dmenu grabs the keyboard before reading stdin if not reading from a tty. This
@@ -81,6 +88,12 @@ from 0.
 .BI \-p " prompt"
 defines the prompt to be displayed to the left of the input field.
 .TP
+.BI \-ww " windowWidth"
+define the widow width, not the dmenu, just the window that is shown.
+.TP
+.BI \-n " name"
+defines the name of the window to use in Xresources.
+.TP
 .BI \-fn " font"
 defines the font or font set used.
 .TP
@@ -109,7 +122,10 @@ dmenu is completely controlled by the keyboard.  Items are selected using the
 arrow keys, page up, page down, home, and end.
 .TP
 .B Tab
-Copy the selected item to the input field.
+Goes to next item (right if is listed horizontal or down if is listed vertical).
+.TP
+.B Shift+Tab
+Goes to previous item (left if is listed horizontal or up if is listed vertical).
 .TP
 .B Return
 Confirm selection.  Prints the selected item to stdout and exits, returning
