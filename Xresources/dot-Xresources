@@ -2,8 +2,47 @@
 ! xrdb ~/.Xresources
 !  
 !   
+
+! Define colors
+#define BACKGROUND #282c34
+#define FOREGROUND #e5e9f0
+
+#define WHITE #e5e9f0
+#define TURQUOISE #79d4d5
+#define CYAN #88c0d0
+#define CYAN_MATERIAL #56b6c2
+#define BLUE #0a6cf5
+#define BLUE_MATERIAL #61afef
+#define BLUE_PASTEL #7aabd4
+ 
+#define YELLOW #ffb52a
+#define YELLOW_MATERIAL #d19a66
+#define YELLOW_STRONG #ffa400
+#define YELLOW_PASTEL #fed37e
+#define ORANGE #FF7902
+ 
+#define PINK #d85dc0
+#define PINK_2 #b934a0 
+#define PINK_SOFT #e60053
+#define MAGENTA #b48ead
+#define MAGENTA_MATERIAL #c678dd
+#define RED #f90000
+#define RED_2 #ff5555
+#define RED_MATERIAL #e06c75
+#define RED_SOFT #bd2c40
+#define RED_PASTEL #f58e8e
+ 
+#define GREEN #55aa55
+#define GREEN_MATERIAL #98c379
+#define GREEN_PASTEL #a9d3ab
+#define GREY #646464
+#define GREY_LIGHT #d4d4d4
+ 
+#define PURPLE_PASTEL #d6add5
+
+
 ! Color theme
-*background: #282c34
+*background: BACKGROUND
 *background-alt: #3f4653
 *background-alt2: #3b4252
 *background-alt3: #444
@@ -11,32 +50,31 @@
 *foreground4: #d3e8ee
 *foreground3: #d4d4d4
 *foreground0: #dfdfdf
-*foreground: #e5e9f0
+*foreground: FOREGROUND
 *foreground-alt: #3b4252
-*softPink: #e60053
-*pink: #d85dc0 
-*pink2: #b934a0 
-*orange: #FF7902
-*magenta: #b48ead
-*cyan: #88c0d0
-*white: #e5e9f0
-*red: #f90000
-*red2: #ff5555
-*softRed: #bd2c40
-*green: #55aa55
-*yellow: #ffb52a
-*strongYellow: #ffa400
-*blue: #0a6cf5
-*materialBlue: #61afef
-*grey: #646464
-*pastelRed: #f58e8e
-*pastelGreen: #a9d3ab
-*pastelYellow: #fed37e
-*pastelBlue: #7aabd4
-*pastelPurple: #d6add5
-*turquoise: #79d4d5
-*lightGrey: #d4d4d4
-
+*softPink: PINK_SOFT
+*pink: PINK
+*pink2: PINK_2
+*orange: ORANGE
+*magenta: MAGENTA
+*cyan: CYAN
+*white: WHITE
+*red: RED
+*red2: RED_2
+*softRed: RED_SOFT
+*green: GREEN
+*yellow: YELLOW
+*strongYellow: YELLOW_STRONG
+*blue: BLUE
+*materialBlue: BLUE_MATERIAL
+*grey: GREY
+*lightGrey: GREY_LIGHT
+*pastelRed: RED_PASTEL
+*pastelGreen: GREEN_PASTEL
+*pastelYellow: YELLOW_PASTEL
+*pastelBlue: BLUE_PASTEL
+*pastelPurple: PURPLE_PASTEL
+*turquoise: TURQUOISE
 
 ! st colors
 st.cursor: #abb2bf
@@ -45,34 +83,26 @@ st.cursor: #abb2bf
 st.color0:#000000
 st.color8:#5c6370
 !Red
-st.color1:#e06c75
-st.color9:#e06c75
-!st.color9:#f58e8e
+st.color1: RED_MATERIAL
+st.color9: RED_MATERIAL
 !Green
-st.color2:#98c379
-st.color10:#98c379
-!st.color10: #8AE234
-!st.color10: #a9d3ab
+st.color2: GREEN_MATERIAL
+st.color10: GREEN_MATERIAL
 !Yellow
-st.color3:#d19a66
-st.color11:#d19a66
-!st.color11:#fed37e
+st.color3: YELLOW_MATERIAL
+st.color11: YELLOW_MATERIAL
 !Blue
-st.color4:#61afef
-st.color12:#61afef
-!st.color12:#7aabd4
+st.color4: BLUE_MATERIAL
+st.color12: BLUE_MATERIAL
 !Magenta
-st.color5:#c678dd
-st.color13:#c678dd
-!st.color13:#d6add5
+st.color5: MAGENTA_MATERIAL
+st.color13: MAGENTA_MATERIAL
 !Cyan
-st.color6:#56b6c2
-st.color14:#56b6c2
-!st.color14:#79d4d5
+st.color6: CYAN_MATERIAL
+st.color14: CYAN_MATERIAL
 !White
 st.color7:#abb2bf
 st.color15:#fffefe
-!st.color15:#d4d4d4
 
 
 ! Fonts
@@ -92,6 +122,7 @@ st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
 *.Tabbed.tabFont: monospace:size=16
+*.Dmenu.font: NotoSansDisplay Nerd Font:size=70
 
 ! Tabbed settings
 vimb*tabwidth: 150
@@ -99,4 +130,23 @@ vimb*tabAfter: >
 vimb*tabBefore: <
 vimb*tabTitletrim: ...
 
+
+! Dmenu settings
+*.Dmenu.normFg: FOREGROUND
+*.Dmenu.normBg: BACKGROUND
+*.Dmenu.selBg: BACKGROUND
+*.Dmenu.selFg: FOREGROUND
+*.Dmenu.outBg: BACKGROUND
+*.Dmenu.outFg: FOREGROUND
+*.Dmenu.border: 6
+commonApps.selBg: PINK
+powerMenu.selBg: BLUE
+layoutMenu.selBg: GREEN_MATERIAL
+scrotMenu.selBg: RED_MATERIAL
+appsMenu.font: NotoSansDisplay Nerd Font:size=25
+appsMenu.selBg: GREEN
+appsMenu.border: 6
+via.border: 6
+via.selBg: YELLOW_MATERIAL
+via.font: NotoSansDisplay Nerd Font:size=25
 
