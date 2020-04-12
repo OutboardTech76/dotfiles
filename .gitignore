@@ -34,3 +34,4 @@ dmenu/dmenu
 dmenu/stest
 dmenu/scripts/*
 !/dmenu/scripts/*.sh
+!/dmenu/scripts/via
