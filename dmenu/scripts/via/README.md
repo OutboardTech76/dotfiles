@@ -1,5 +1,7 @@
 `via` is a more efficient way to interact with your computer.
 
+This is a fork of the original `via` project made by **xalexxalex** (https://github.com/xalexalex/via).
+
 # Concept
 
 Everything should be at most a few keystrokes away.
@@ -36,28 +38,16 @@ With appropriate URLs (such as `https://en.wikipedia.org/wiki/Special:Search?sea
 
 # Configuration
 
-`via` is made up of three parts:
+`via` is made up of two parts:
 
-- `via-feed` generates a list of menu options;
-- `via-menu` interacts with you and records your choice;
+- `via` generates a list of menu options and executes dmenu;
 - `via-open` opens or launches the choice.
 
 However, `via` is a concept and as such it is implementation-independent.
 
-`via-feed`, `via-menu`, and `via-open` are all configurable. To do so, copy them to `$HOME/.config/via` and edit them to your liking. Your version will automatically be used.
+## via
 
-## via-feed
-
-`via-feed` writes the menu options to standard output.
-
-If you use the default `via-feed`, you can tweak it by editing the `shortcuts` and `websites` files, but you are encouraged to edit `via-feed` itself.
-In particular, the `find` command may be tweaked to exclude big folders that shouldn't be indexed (such as hidden folders, source code directories, and anything you are unlikely to open with `via`).
-
-## via-menu
-
-`via-menu` reads options on standard input, presents them to you, and outputs your choice(s) to standard output.
-
-By default, `dmenu` is used. However, you can use `fzf`, `rofi`, or even a combination of these (for example, `fzf` when run in a terminal and `dmenu` when run in a graphical environment).
+`via` present the options with `dmenu` and writes the choice to the stardard output.
 
 ## via-open
 
