@@ -58,6 +58,3 @@ However, `via` is a concept and as such it is implementation-independent.
 - opens folders in your file manager;
 - runs shell commands.
 
-# Installation
-
-In order to use `via` in the hole system use `sudo make install` to install it. You can also uninstall it using `sudo make uninstall`.
