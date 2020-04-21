@@ -8,7 +8,7 @@ browser="vimb"
 while read arg; do
 	# first try matching by filename or pathname
 	case "${arg,,}" in
-		http*)
+		http*|www.*|*.com|*.es)
 			"$browser" "$arg" &
 			;;
 		[^/]*) # doesn't start with '/'
