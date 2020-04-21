@@ -7,10 +7,19 @@ cache="$HOME/.cache/via"
 if [[ ! -e "$cache" ]]; then
     find "$HOME" -mindepth 1 \( \
         -name ".*" -o \
-        -path "$HOME/Desktop" \
-        \) -prune -o -print | sort > "$cache"
+        -path "$HOME/catkin_ws" -o \
+        -path "$HOME/catkin_ws_david" -o \
+        -path "$HOME/dockerTFG/openpose" -o \
+        -path "$HOME/dockerTFG/openpose_ros-master" -o \
+        -path "$HOME/dockerTFG/pynaoqi-python2.7-2.5.7.1-linux64" -o \
+        -path "$HOME/dockerTFG/testOpenpose/images" -o \
+        -path "$HOME/dockerTFG/testOpenpose/totalImages" -o \
+        -path "$HOME/dockerTFG/testOpenpose/totalJsonFiles" -o \
+        -path "$HOME/Discord" -o \
+        -path "$HOME/cmake-3.16.4"  \
+        \) -prune -o -print | sed 's/\/home\/paco/~/g' | sort > "$cache"
 fi
 
 # Pass cache to dmenu and the result to another sh file that selects what to do with that
-cat "$cache" | dmenu -p "via" -i -c -l 5 -n via -w 600 | via-open
+cat "$cache" | dmenu -p "via" -i -c -l 5 -n via -w 600 | sed 's/~/\/home\/paco/g' | via-open
 
