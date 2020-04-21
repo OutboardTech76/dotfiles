@@ -113,6 +113,7 @@ bindsym $mod+o exec --no-startup-id $HOME/dotfiles/dmenu/scripts/commonApps.sh
 bindsym $mod+d exec --no-startup-id $HOME/dotfiles/dmenu/scripts/appsmenu.sh
 bindsym $mod+c exec --no-startup-id $HOME/dotfiles/dmenu/scripts/i3layoutmenu.sh
 bindsym $mod+p exec --no-startup-id $HOME/dotfiles/dmenu/scripts/powermenu.sh
+bindsym $mod+s exec --no-startup-id $HOME/dotfiles/dmenu/scripts/via/via
 bindsym Print exec --no-startup-id $HOME/dotfiles/dmenu/scripts/scrotmenu.sh 
  
 ######################
