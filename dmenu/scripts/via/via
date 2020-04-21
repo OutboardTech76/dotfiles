@@ -21,5 +21,5 @@ if [[ ! -e "$cache" ]]; then
 fi
 
 # Pass cache to dmenu and the result to another sh file that selects what to do with that
-cat "$cache" | dmenu -p "via" -i -c -l 5 -n via -w 600 | sed 's/~/\/home\/paco/g' | $HOME/dotfiles/dmenu/scripts/via/via-open
+cat "$cache" | dmenu -p "via" -i -c -l 5 -n via -w 600 -y 40 | sed 's/~/\/home\/paco/g' | $HOME/dotfiles/dmenu/scripts/via/via-open
 
