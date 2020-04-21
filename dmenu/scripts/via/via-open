@@ -12,7 +12,7 @@ while read arg; do
 			"$browser" "$arg" &
 			;;
 		[^/]*) # doesn't start with '/'
-			sh -c "$arg"
+			sh -c "$arg" &
 			;;
 		*.txt|*.py|*.c|*.cc|*.tex|*.log|*.sh|*.csv|*.conf)
             "$terminal" -e ""$editor" "$arg"" &
