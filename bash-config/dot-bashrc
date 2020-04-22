@@ -121,8 +121,6 @@ set -o vi
 export VISUAL=/usr/bin/vim
 
 
-source /opt/ros/melodic/setup.bash
-
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
 source /usr/share/powerline/bindings/bash/powerline.sh
 fi
