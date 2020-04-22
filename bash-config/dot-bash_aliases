@@ -26,3 +26,4 @@ alias gs='git status'
 # Common alias
 alias ..='cd ..'
 alias pacman='sudo pacman'
+alias vim='nvim'
