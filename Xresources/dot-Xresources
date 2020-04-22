@@ -114,7 +114,7 @@ polybar.notoFont: NotoSansDisplay Nerd Font:pixelsize=11;2
 polybar.emojiFont: NotoEmoji Nerd Font:pixelsize=11;2
 i3wm.font1: FontAwesome 10
 i3wm.font2: System San Francisco Display 10
-st.font: Hack:size=14:antialias=true:autohint=true
+st.font: Menlo:size=14:antialias=true:autohint=true
 st.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
 st.awesomeFont2: Font Awesome 5 Free:pixelsize=11
 st.awesomeFont3: Font Awesome 5 Brands:pixelsize=11
