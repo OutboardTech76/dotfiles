@@ -106,7 +106,8 @@ st.color15:#fffefe
 
 
 ! Fonts
-polybar.sanfFont: System San Francisco Display:style=Retina:pixelsize=11;2
+polybar.sanfFont: SF UI Display:style=Retina:pixelsize=11;2
+!polybar.sanfFont: System San Francisco Display:style=Retina:pixelsize=11;2
 polybar.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11;2
 polybar.awesomeFont2: Font Awesome 5 Free:pixelsize=11;2
 polybar.awesomeFont3: Font Awesome 5 Brands:pixelsize=11;2
@@ -123,6 +124,12 @@ st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
 *.Tabbed.tabFont: monospace:size=16
 *.Dmenu.font: NotoSansDisplay Nerd Font:size=70
+
+! Polybar settings
+polybar.wlan: wlp2s0
+polybar.eth: enx00e04c68023b
+polybar.monitor: DP-1-1
+polybar.motitorFallback: eDP-1-1
 
 ! Tabbed settings
 vimb*tabwidth: 150

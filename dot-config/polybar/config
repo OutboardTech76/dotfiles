@@ -33,8 +33,8 @@ radius = 14
 fixed-center = true
 
 # Use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
-monitor               = DP-1-1
-monitor-fallback      = eDP-1-1
+monitor               = ${xrdb:polybar.monitor:DP-1-1}
+monitor-fallback      = ${xrdb:polybar.monitorFallback:eDP-1-1}
 monitor-strict = false
 offset-y              = 5
 override-redirect     = true
@@ -135,7 +135,7 @@ thermal-zone = 0
 ; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp2_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp2_input
 base-temperature = 50
 warn-temperature = 90
 units = false
@@ -171,13 +171,13 @@ ramp-10 = 
  
 [module/temp2]
 inherit = module/temp1
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp3_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp3_input
 [module/temp3]
 inherit = module/temp1
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp4_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp4_input
 [module/temp4]
 inherit = module/temp1
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp5_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp5_input
   
 [module/gpu]
 type = custom/script
@@ -314,7 +314,7 @@ ramp-used-3 = 
   
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = ${xrdb:polybar.wlan:wlp2s0}
 interval = 3.0
 
 format-connected = <label-connected>
@@ -325,7 +325,7 @@ format-disconnected-foreground = ${xrdb:red:#00ff00}
  
 [module/eth]
 type = internal/network
-interface = enx00e04c68023b
+interface = ${xrdb:polybar.eth:enx00e04c68023b}
 interval = 3.0
 
 format-connected-prefix = 
