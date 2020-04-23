@@ -10,6 +10,7 @@ zoom-out = minus:!insert,<Control>minus:insert
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
+font = MesloLGS NF 11
 font = Menlo 11
 #fullscreen = true
 #icon_name = terminal
