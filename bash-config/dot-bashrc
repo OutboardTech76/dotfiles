@@ -118,7 +118,13 @@ fi
 
 # Add vim mode
 set -o vi
-export VISUAL=/usr/bin/vim
+VISUAL=/usr/bin/nvim
+SUDO_EDIT=/usr/bin/nvim
+EDITOR=/usr/bin/vim
+export VISUAL
+export SUDO_EDIT
+export EDITOR
+
 
 
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
