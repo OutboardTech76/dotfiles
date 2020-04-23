@@ -106,7 +106,7 @@ st.color15:#fffefe
 
 
 ! Fonts
-polybar.sanfFont: SF UI Display:style=Retina:pixelsize=11;2
+polybar.sanfFont: SF UI Display:style=Regular:pixelsize=11;2
 !polybar.sanfFont: System San Francisco Display:style=Retina:pixelsize=11;2
 polybar.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11;2
 polybar.awesomeFont2: Font Awesome 5 Free:pixelsize=11;2
@@ -114,7 +114,8 @@ polybar.awesomeFont3: Font Awesome 5 Brands:pixelsize=11;2
 polybar.notoFont: NotoSansDisplay Nerd Font:pixelsize=11;2
 polybar.emojiFont: NotoEmoji Nerd Font:pixelsize=11;2
 i3wm.font1: FontAwesome 10
-i3wm.font2: System San Francisco Display 10
+i3wm.font2: SF UI Display 10
+!i3wm.font2: System San Francisco Display 10
 st.font: Menlo:size=14:antialias=true:autohint=true
 st.awesomeFont1: Font Awesome 5 Free Solid:pixelsize=11
 st.awesomeFont2: Font Awesome 5 Free:pixelsize=11
@@ -127,7 +128,7 @@ st.powerlineFont: Hack:pixelsize=11
 
 ! Polybar settings
 polybar.wlan: wlp2s0
-polybar.eth: enx00e04c68023b
+polybar.eth: enp62s0u1u4
 polybar.monitor: DP-1-1
 polybar.motitorFallback: eDP-1-1
 
