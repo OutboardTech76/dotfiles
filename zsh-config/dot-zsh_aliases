@@ -1,0 +1,31 @@
+alias la='ls -a'
+# edit zsh file
+alias ez='nvim ~/.zshrc'
+alias sz='source ~/.zshrc'
+
+# Openpose alias
+alias openpose='cd ~/dockerTFG/testOpenpose'
+alias setCuda='source ~/dockerTFG/setCuda'
+alias clearImg='sudo rm -r images && mkdir images'
+
+# ROS alias  
+#alias cw='cd ~/catkin_ws'
+#alias cs='cd ~/catkin_ws/src'
+#alias cm='cd ~/catkin_ws && catkin_make'
+#source /opt/ros/melodic/setup.bash
+#source ~/catkin_ws/devel/setup.bash
+
+# i3 alias
+alias ei='nvim ~/.config/i3/config'
+alias ep='nvim ~/.config/polybar/config'
+alias ec='nvim ~/.config/compton.conf'
+
+# Git alias
+alias gs='git status'
+alias ga='git add'
+alias gm='git commit'
+
+# Common alias
+alias ..='cd ..'
+alias pacman='sudo pacman'
+alias vim='nvim'
