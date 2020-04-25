@@ -130,6 +130,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 let g:neotex_enabled = 2 " On by default"
 let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
 "----------------------------------"
 
 "------ Python syntax configuration ------"
