@@ -32,12 +32,29 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-###################
-#      Alias      #
-###################
-alias ls='ls --color=auto'
-source $HOME/.zsh_aliases
+setopt autocd extendedglob nomatch
 
+# Set environment variables
+if ! which nvim &> /dev/null; then
+    EDITOR=/usr/bin/vi
+    VISUAL=/usr/bin/vi
+else
+    EDITOR=/usr/bin/nvim
+    VISUAL=/usr/bin/nvim
+fi
+
+export EDITOR
+export VISUAL
+
+# End setting environment variables 
+
+
+# Alias
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
+fi
+
+ 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -88,6 +105,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
     #atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     #atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 #zinit light trapd00r/LS_COLORS
+
+
  
 # Enable vim mode
 zinit light softmoth/zsh-vim-mode 
