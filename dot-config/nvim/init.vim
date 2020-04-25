@@ -63,6 +63,8 @@ Plug 'ekalinin/Dockerfile.vim'
 " Highlight syntax for JSON files
 Plug 'elzr/vim-json'
 
+" Highlight syntax for zinit zsh
+Plug 'zinit-zsh/zinit-vim-syntax'
 
 call plug#end()
 
