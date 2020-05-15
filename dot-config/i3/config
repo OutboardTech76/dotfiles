@@ -289,7 +289,7 @@ assign [class="Firefox"] $ws2
 #assign [class="Nautilus"] $ws3
 assign [class="ranger"] $ws3
 # Documents apps
-assign [class="Evince"] $ws6
+#assign [class="Evince"] $ws6
 
 
 ####################################
@@ -305,6 +305,10 @@ for_window [class="Pavucontrol"] floating enable
 # File explorer
 for_window [class="Nautilus"] floating enable
 for_window [class="Nautilus"] resize set 640 480
+for_window [class="pcmanfm"] floating enable
+for_window [class="pcmanfm"] resize set 640 480
+for_window [class="Pcmanfm"] floating enable
+for_window [class="Pcmanfm"] resize set 640 480
  
   
 ################################
