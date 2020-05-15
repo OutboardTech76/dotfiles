@@ -16,7 +16,7 @@ case $chosen in
         tabbed -c -n vimb vimb -e &
         ;;
     $files)
-        nautilus &
+        pcmanfm &
         ;;
     $mail)
         thunderbird &
