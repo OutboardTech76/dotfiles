@@ -131,6 +131,8 @@ call deoplete#custom#var('omni', 'input_patterns', {
 let g:neotex_enabled = 2 " On by default"
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
+" Use F2 to compile/stop compilation
+nmap <F2> :VimtexCompile<CR>
 "----------------------------------"
 
 "------ Python syntax configuration ------"
@@ -174,6 +176,9 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 "---------------------------------------"  
+" Toggle NERDTree
+nmap <silent> <F3> :NERDTreeToggle<CR>
+
 
 nnoremap <c-CR> <S-o> <Esc>
 nnoremap <CR> o <Esc>
