@@ -29,10 +29,10 @@ set incsearch=true
 
 # The font family to use as the default for content that does not specify a
 # font.
-set default-font=DejaVu Sans
+set default-font=Menlo
 
 # The font family used as the default for content using monospace font.
-set monospace-font=DejaVu Sans Mono
+set monospace-font=Menlo Mono
 
 # The font family used as the default for content using sans-serif font.
 set sans-serif-font=DejaVu Sans
