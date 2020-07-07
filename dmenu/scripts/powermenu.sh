@@ -11,6 +11,7 @@ options="$lock\n$power_off\n$reboot\n$log_out"
 chosen="$(echo -e "$options" | dmenu -c -t -ww 660 -x 262 -w 1200 -h 160 -n powerMenu)"
 case $chosen in
     $lock)
+        systemctl hibernate
         ;;
     $power_off)
         systemctl poweroff
