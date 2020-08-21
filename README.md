@@ -10,4 +10,6 @@ Use `stow bash-config --dotfiles`, `--dotfiles` replace `dot-` with `.`
 Use `stow zsh-config --dotfiles`, `--dotfiles` replace `dot-` with `.`
 ### For Xfiles:
 Use `stow Xfiles --dotfiles`, `--dotfiles` replace `dot-` with `.`
+### For xorg.conf.d
+Use `stow --target=/etc/X11/xorg.conf.d xorg.conf.d`, contains configuration to use always NVIDIA graphics
 
