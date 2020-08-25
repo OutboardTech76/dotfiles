@@ -13,5 +13,5 @@ Use `stow Xfiles --dotfiles`, `--dotfiles` replace `dot-` with `.`
 ### For xorg.conf.d
 Use `stow --target=/etc/X11/xorg.conf.d xorg.conf.d`, contains configuration to use always NVIDIA graphics
 
-##Config for Arch
+## Config for Arch
 Executing **myConfigArch.sh** as `sudo` or in a fresh install installs everything (stow, zsh, i3, etc.), links files with stow, installs dmenu and yay (with polybar, tdrop and picom).
