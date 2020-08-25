@@ -45,18 +45,7 @@ set $thirdMonitor eDP-1-1
 #      Modes      #
 ###################
 
-#set $modeContainer Container: [s]tacking [t]abbed toggl[e] split
-#mode "$modeContainer" {
-    #bindsym s layout stacking; mode "default"
-    #bindsym t layout tabbed; mode "default"
-    #bindsym e layout toggle split; mode "default"
-
-    #bindsym Escape mode "default"
-    #bindsym $mod+c mode "default"
-#}
-# bindsym $mod+c mode "$modeContainer"
-
-# resize window (you can also use the mouse for that)
+# resize window 
 mode "resize" {
         bindsym $left resize shrink width 1 px or 1 ppt
         bindsym $down resize grow height 1 px or 1 ppt
@@ -75,41 +64,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
  
-# Press $mod+o followed by either f, t, s, Escape to launch firefox, thunderbird, sound drivers or return to the default mode
-set $modeLauncher Launch: [f]irefox [t]hunderbird [s]ound drivers
-mode "$modeLauncher" {
-    bindsym f exec firefox; mode "default"
-    bindsym t exec thunderbird; mode "default"
-    bindsym s exec pavucontrol #Audio controller
-
-    bindsym Escape mode "default"
-    #bindsym $mod+o mode "default"
-
-}
-#bindsym $mod+o mode "$modeLauncher"
-
- 
-# Rofi menu launcher
-set $rofiTheme = "/home/paco/.config/rofi/sidetab.rasi"
- 
-set $modeRofi Rofi: [r]un [w]indow [s]sh
-mode "$modeRofi" {
-    bindsym r exec rofi -show run -config $rofiTheme; mode "default"
-    bindsym w exec rofi -show window -config $rofiTheme; mode "default"
-    bindsym s exec rofi -show ssh -config $rofiTheme; mode "default"
-
-    bindsym Escape mode "default"
-    bindsym $mod+d mode "default"
-}
-# Use Shift+d to launch all rofi types. Use d to launch rofi run type
-bindsym $mod+Shift+d mode "$modeRofi"
-#bindsym $mod+d exec rofi -show run -config $rofiTheme
-#byndsym $mod+o exec --no-startup-id $HOME/.config/rofi/scripts/commonApps.sh
-#bindsym $mod+o exec --no-startup-id $HOME/.config/rofi/scripts/commonApps.sh
-#bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/scripts/appsmenu.sh
-#bindsym $mod+c exec --no-startup-id $HOME/.config/rofi/scripts/i3layoutmenu.sh
-#bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/scripts/powermenu.sh
-#bindsym Print exec --no-startup-id $HOME/.config/rofi/scripts/scrotmenu.sh 
   
 bindsym $mod+o exec --no-startup-id $HOME/dotfiles/dmenu/scripts/commonApps.sh
 bindsym $mod+d exec --no-startup-id $HOME/dotfiles/dmenu/scripts/appsmenu.sh
@@ -297,10 +251,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 #increase screen brightnes
 # Terminal
 #assign [class="gnome-terminal"] $ws1
 # Web apps
-assign [class="Firefox"] $ws2
+#assign [class="Firefox"] $ws2
 # File apps
 #assign [class="Nautilus"] $ws3
-assign [class="ranger"] $ws3
+#assign [class="ranger"] $ws3
 # Documents apps
 #assign [class="Evince"] $ws6
 
@@ -308,9 +262,6 @@ assign [class="ranger"] $ws3
 ####################################
 #      Apps in floating mode      #
 ####################################
-
-# Preferences in terminator
-for_window [title="Terminator Preferences"] floating enable
 
 # Pavucontrol. Use for change audio output
 for_window [class="Pavucontrol"] floating enable
@@ -335,10 +286,6 @@ for_window [class="Pcmanfm"] resize set 640 480
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -354,7 +301,6 @@ exec_always --no-startup-id $HOME/.config/i3/scripts/changeWallpaper.sh
 
 # Run compton
 exec_always --no-startup-id compton 
-#exec_always --no-startup-id compton --config $HOME/config/compton.conf
 
 # Redirect CapsBlock key to Esc key
 exec_always setxkbmap es -option caps:escape
