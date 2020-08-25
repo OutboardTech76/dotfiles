@@ -1,7 +1,7 @@
 dot-config/nvim/*
 !/dot-config/nvim/init.vim
 !/dot-config/nvim/colors
-!/dot-config/nvim/autoload
+!/dot-config/nvim/autoload/onedark.vim
 
 dot-config/ranger/* 
 !/dot-config/ranger/commands.py
