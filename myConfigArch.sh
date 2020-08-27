@@ -1,6 +1,6 @@
 # !/bin/bash
 # Needed files
-sudo pacman -S autoconf automake base binutils bison cmake exa fakeroot feh firefox flex gcc git gtk-chtheme i3-gaps intel-ucode lxappearance m4 make neovim networkmanager nvidia openssh patch pcmanfm pkgconf pulseaudio pulseaudio-alsa python-pip python-pynvim python2 python2-pip ranger refind scrot stow termite texinfo thunderbird vim xclip xorg zathura zathura-djvu zathura-pdf-mupdf zsh  
+sudo pacman -S autoconf automake base binutils bison cmake exa fakeroot feh firefox flex gcc git gtk-chtheme i3-gaps intel-ucode lxappearance m4 make neovim networkmanager nvidia openssh patch pcmanfm pkgconf pulseaudio pulseaudio-alsa python-pip python-pynvim python2 python2-pip ranger refind scrot stow termite texinfo thunderbird vim xclip xorg zathura zathura-djvu zathura-pdf-mupdf zsh w3m
  
 #Necessary files nevim
 pip install pynvim 
