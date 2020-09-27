@@ -127,7 +127,7 @@ st.powerlineFont: Hack:pixelsize=11
 *.Dmenu.font: NotoSansDisplay Nerd Font:size=70
 
 ! Polybar settings
-polybar.wlan: wlan0
+polybar.wlan: wlp2s0
 polybar.eth: enp62s0u1u4
 polybar.monitor: DP-1-2
 polybar.monitorFallback: eDP-1-1
