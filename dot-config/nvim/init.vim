@@ -155,6 +155,10 @@ aug end
 " Rofi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
 
+" .launch file syntaz highlight
+au BufRead,BufNewFile *.launch set filetype=xml
+au BufRead,BufNewFile *.launch set syntax=xml
+
 " Run xrdb when Xresources are updated
 autocmd BufWritePost ~/.Xresources,~/dotfiles/Xresources/dot-Xresources !xrdb %
 
