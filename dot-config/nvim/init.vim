@@ -192,6 +192,12 @@ nmap <silent> <c-l> :wincmd l<CR>
 " Toggle NERDTree
 nmap <silent> <F3> :NERDTreeToggle<CR>
 
+"---- Resize when split screen --------"
+nnoremap <silent> <Leader>+ :exe "resize +5" <CR>
+nnoremap <silent> <Leader>- :exe "resize -5" <CR>
+nnoremap <silent> <Leader>> :exe "vertical resize +5" <CR>
+nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
+
 
 nnoremap <c-CR> <S-o> <Esc>
 nnoremap <CR> o <Esc>
