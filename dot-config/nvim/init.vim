@@ -7,11 +7,14 @@ end
 
 call plug#begin('~/.config/nvim/bundle')
   
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'zchee/deoplete-jedi'
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+"Plug 'zchee/deoplete-go', { 'do': 'make' }
+"Plug 'zchee/deoplete-jedi'
+"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 "---- TMux integration --------"
 Plug 'christoomey/vim-tmux-navigator'
@@ -114,12 +117,25 @@ let g:airline_theme='onedark'
 
 
 "------ Autocomplete options ---------"
-let g:deoplete#enable_at_startup = 1
-" Use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-"inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-" Close the documentation window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"let g:deoplete#enable_at_startup = 1
+"" Use tab to forward cycle
+"inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+""inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+"" Close the documentation window when completion is done
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+ 
+" Coc " 
+" Use tab to navgate to the next item in completion
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<Tab>" :
+			\ coc#refresh()
+ 
 "-------------------------------------"
 
 filetype plugin indent on
@@ -130,9 +146,9 @@ filetype plugin indent on
 let mapleader=","
 
 "------ Latex configuration ------"
-call deoplete#custom#var('omni', 'input_patterns', {
-            \ 'tex': g:vimtex#re#deoplete
-            \})
+"call deoplete#custom#var('omni', 'input_patterns', {
+            "\ 'tex': g:vimtex#re#deoplete
+            "\})
 
 
 let g:neotex_enabled = 2 " On by default"
@@ -198,6 +214,10 @@ nnoremap <silent> <Leader>- :exe "resize -5" <CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +5" <CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
 
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1,1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0,1) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1,1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0,1)\<cr>" : "\<Left>"
 
 nnoremap <c-CR> <S-o> <Esc>
 nnoremap <CR> o <Esc>
