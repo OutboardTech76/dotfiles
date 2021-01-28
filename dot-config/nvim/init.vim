@@ -136,6 +136,14 @@ inoremap <silent><expr> <Tab>
 			\ <SID>check_back_space() ? "\<Tab>" :
 			\ coc#refresh()
  
+inoremap <silent><expr> <s-Tab>
+			\ pumvisible() ? "\<C-p>" :
+            \ "\<s- tab>" : coc#refresh()
+			"\ <SID>check_back_space() ? "\<s-tab>" :
+			"\ coc#refresh()
+ 
+
+
 "-------------------------------------"
 
 filetype plugin indent on
@@ -171,7 +179,10 @@ aug end
 " Rofi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
 
-" .launch file syntaz highlight
+" zsh syntax highlight
+au BufRead,BufNewFile ~/dotfiles/zsh-config/* set filetype=zsh
+
+" .launch file syntax highlight
 au BufRead,BufNewFile *.launch set filetype=xml
 au BufRead,BufNewFile *.launch set syntax=xml
 au BufRead,BufNewFile *.urdf set filetype=xml
