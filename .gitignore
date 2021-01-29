@@ -1,5 +1,6 @@
 dot-config/nvim/*
 !/dot-config/nvim/init.vim
+!/dot-config/nvim/coc-settings.json
 !/dot-config/nvim/colors
 !/dot-config/nvim/autoload/onedark.vim
 
