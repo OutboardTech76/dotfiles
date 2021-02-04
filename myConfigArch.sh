@@ -10,6 +10,7 @@ pip2 install pynvim
 stow --target=$HOME/.config -v -R dot-config 
 stow  --dotfiles -R -v zsh-config
 stow  --dotfiles -R -v Xfiles
+stow --dotfiles -R -v makepkg
 sudo stow --target=/etc/X11/xorg.conf.d  -v -R xorg.conf.d
 
 ## Install dmenu
