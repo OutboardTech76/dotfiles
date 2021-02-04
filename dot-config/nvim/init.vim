@@ -13,7 +13,13 @@ call plug#begin('~/.config/nvim/bundle')
 "Plug 'zchee/deoplete-jedi'
 "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
+" coc and coc extensions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-json'
+"Plug 'fanheyward/coc-markdownlint'
+Plug 'neoclide/coc-yaml'
+Plug 'voldikss/coc-cmake'
+Plug 'clangd/coc-clangd'
 
 
 "---- TMux integration --------"
@@ -84,7 +90,7 @@ call plug#end()
 let g:rainbow_active = 1
 
 "---- Snippets configuration -----"
-let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "----------------------------------"
@@ -124,7 +130,7 @@ let g:airline_theme='onedark'
 "" Close the documentation window when completion is done
 "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
  
-" Coc " 
+"-------- Coc options -------------- " 
 " Use tab to navgate to the next item in completion
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -135,12 +141,10 @@ inoremap <silent><expr> <Tab>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<Tab>" :
 			\ coc#refresh()
- 
-inoremap <silent><expr> <s-Tab>
-			\ pumvisible() ? "\<C-p>" :
-            \ "\<s- tab>" : coc#refresh()
-			"\ <SID>check_back_space() ? "\<s-tab>" :
-			"\ coc#refresh()
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+" Use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh() 
  
 
 
@@ -233,7 +237,7 @@ inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float
 nnoremap <c-CR> <S-o> <Esc>
 nnoremap <CR> o <Esc>
  
-imap <C-space> <Esc>
+"imap <C-space> <Esc>
 vmap <C-space> <Esc>
 
 
