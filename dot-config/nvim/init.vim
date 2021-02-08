@@ -11,14 +11,14 @@ call plug#begin('~/.config/nvim/bundle')
 " CoC 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
  
-" Rainbow parentheses
-Plug 'frazrepo/vim-rainbow'
 
 "---- NerdTree and commenter ----"
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons' |
+            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Icons for nerdtree
-Plug 'ryanoasis/vim-devicons'
 "--------------------------------"
 
 " Change, add or delete surrounds (parenthesis, brackets, etc)
@@ -52,8 +52,11 @@ Plug 'tpope/vim-fugitive'
 " Collection of language packs
 Plug 'sheerun/vim-polyglot'
 "---------------------------"
-call plug#end()
 
+" Rainbow parentheses
+Plug 'frazrepo/vim-rainbow'
+ 
+call plug#end()
 
 for f in glob('~/.config/nvim/config/*.vim',0,1)
     execute 'source' f
