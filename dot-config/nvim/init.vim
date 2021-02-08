@@ -1,3 +1,4 @@
+" Autoinstall plugin manager
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -7,20 +8,9 @@ end
 set nocompatible
 
 call plug#begin('~/.config/nvim/bundle')
-  
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-"Plug 'zchee/deoplete-go', { 'do': 'make' }
-"Plug 'zchee/deoplete-jedi'
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-
-" coc 
+" CoC 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-"---- TMux integration --------"
-"Plug 'christoomey/vim-tmux-navigator'
-
+ 
 " Rainbow parentheses
 Plug 'frazrepo/vim-rainbow'
 
@@ -29,7 +19,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
-"Plug 'scrooloose/syntastic'
 "--------------------------------"
 
 " Change, add or delete surrounds (parenthesis, brackets, etc)
@@ -41,15 +30,10 @@ Plug 'vim-airline/vim-airline-themes'
 "-------------------------"
 
 Plug 'Yggdroot/indentLine'
-
 Plug 'jiangmiao/auto-pairs'
-Plug 'sbdchd/vim-run'
 
 " Python autofold
 Plug 'tmhedberg/SimpylFold'
-
-" Syntax check "
-"Plug 'w0rp/ale'
 
 "---- Latex plugins -------"
 Plug 'lervag/vimtex'
@@ -64,206 +48,15 @@ Plug 'honza/vim-snippets'
 " Integration of git inside nvim
 Plug 'tpope/vim-fugitive'
 
-
 "----- Syntax highlight -----"
 " Collection of language packs
 Plug 'sheerun/vim-polyglot'
 "---------------------------"
-
 call plug#end()
 
 
-" Enable rainbow parenthesis 
-let g:rainbow_active = 1
-
-"---- Snippets configuration -----"
-"let g:UltiSnipsExpandTrigger="<c-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"----------------------------------"
+for f in glob('~/.config/nvim/config/*.vim',0,1)
+    execute 'source' f
+endfor
 
 
-"" ----- ALE configuration ------------"
-"let g:ale_lint_on_enter = 0
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_echo_msg_error_str = 'E'
-"let g:ale_echo_msg_warning_str = 'W'
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_linters = {'python': ['flake8']}
-
-"" ------------------------------------"
-
-" --- Airline configuration -----------"
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline#extensions#ale#enabled = 1
-"let g:airline#extensions#ale#error_symbol = 'E:'
-"let g:airline#extensions#ale#warning_symbol = 'W:'
-
-let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
-let g:airline#extensions#tabline#fnamemod = ':t'  " Mostrar sólo el nombre del archivo
-" Use powerline fonts and symbols"
-let g:airline_powerline_fonts = 1
-set noshowmode " Dont show current mode"
-let g:airline_theme='onedark'
-"---------------------------------------"
-
-
-"------ Autocomplete options ---------"
-"let g:deoplete#enable_at_startup = 1
-"" Use tab to forward cycle
-"inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-""inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-"" Close the documentation window when completion is done
-"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
- 
-"-------- Coc options -------------- " 
-" Use tab to navgate to the next item in completion
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~ '\s'
-endfunction
-
-
-" Use tab to rotate through completion obtions
-inoremap <silent><expr> <Tab>
-            \ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<Tab>" :
-			\ coc#refresh()
- 
-" Use shift tab to use snippets
-inoremap <silent><expr> <s-tab>
-            \ pumvisible() ? coc#_select_confirm() :
-            \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-            \ <SID>check_back_space() ? "\<s-tab>" :
-            \ coc#refresh()
-" 
-"inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-let g:coc_snippet_next = '<tab>'
-
-" Use <c-space> to trigger completion
-"inoremap <silent><expr> <c-space> coc#refresh() 
-
-" Coc plugins
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-pyright', 'coc-clangd']
-"-------------------------------------"
-
- 
-filetype plugin indent on
-
-
-"Maps leader key '\' to ','. Use ',cc' to comment a selected text and ',cu' to
-"uncomment
-let mapleader=","
-
-"------ Latex configuration ------"
-"call deoplete#custom#var('omni', 'input_patterns', {
-            "\ 'tex': g:vimtex#re#deoplete
-            "\})
-
-
-let g:neotex_enabled = 2 " On by default"
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
-" Use F2 to compile/stop compilation
-nmap <F2> :VimtexCompile<CR>
-"----------------------------------"
-
-" indent line
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-"------------- AutoPairs --------------"
-let g:AutoPairsFlyMode = 1
-au FileType xml,html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->', '<' : '>'})
-
-"--------------------------------------"
-
-
-"------ Python syntax configuration ------"
-"let g:python_highlight_all = 1
-
-"------------ Syntax highlight -------------"
-" i3 
-aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-  au BufNewFile,BufRead ~/dotfiles/dot-config/i3/config set filetype=i3config
-aug end
-" Rofi 
-au BufNewFile,BufRead /*.rasi setf css
-" zsh 
-au BufRead,BufNewFile ~/dotfiles/zsh-config/* set filetype=zsh
-" .launch file as xml
-au BufRead,BufNewFile *.launch set filetype=xml
-au BufRead,BufNewFile *.launch set syntax=xml
-au BufRead,BufNewFile *.urdf set filetype=xml
-au BufRead,BufNewFile *.urdf set syntax=xml
-"-------------------------------------------"
-
-" Run xrdb when Xresources are updated
-autocmd BufWritePost ~/.Xresources,~/dotfiles/Xresources/dot-Xresources !xrdb %
-
-
-" Enable auto fold for python
-"set foldmethod=syntax
-"set foldlevelstart=0
-
-set number
-set relativenumber
-
-set incsearch
-set ignorecase
-set smartcase
-
-" Tab and indent configuration
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=0
-
-"----- Navigate split screen ----------"
-"nmap <c-v> :wincmd v<CR>
-nmap <silent> <c-k> :wincmd k<CR> 
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-"---------------------------------------"  
-" Toggle NERDTree
-nmap <silent> <F3> :NERDTreeToggle<CR>
-
-"---- Resize when split screen --------"
-nnoremap <silent> <Leader>+ :exe "resize +5" <CR>
-nnoremap <silent> <Leader>- :exe "resize -5" <CR>
-nnoremap <silent> <Leader>> :exe "vertical resize +5" <CR>
-nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
-"------------------------------------------"
-
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1,1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0,1) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1,1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0,1)\<cr>" : "\<Left>"
-
-nnoremap <c-CR> <S-o> <Esc>
-nnoremap <CR> o <Esc>
- 
-"imap <C-space> <Esc>
-vmap <C-space> <Esc>
-
-
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if (has("termguicolors"))
-  set termguicolors
-endif
- 
- 
- " UI configuration
-syntax on
-syntax enable
-
-colorscheme onedark 
