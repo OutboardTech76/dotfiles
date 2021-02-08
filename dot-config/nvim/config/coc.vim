@@ -3,6 +3,10 @@
 " +-------------------+
 "  
 
+" Autoinstall CoC extensions
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-pyright', 'coc-clangd']
+ 
+ 
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
@@ -24,8 +28,9 @@ inoremap <silent><expr> <s-tab>
 " Use tab when using snippets to rotate trhough snippet elements 
 let g:coc_snippet_next = '<tab>'
 
-" Use <c-space> to trigger completion
-"inoremap <silent><expr> <c-space> coc#refresh() 
-
-" Autoinstall CoC extensions
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-pyright', 'coc-clangd']
+"---- Move through CoC floating menu with C-f and C-b --------"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1,1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0,1) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1,1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0,1)\<cr>" : "\<Left>"
+"-------------------------------------------------------------"
