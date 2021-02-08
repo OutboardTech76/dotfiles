@@ -18,9 +18,6 @@ nnoremap <silent> <Leader>> :exe "vertical resize +5" <CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
 "------------------------------------------"
 
-
-" Toggle NERDTree
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
  
 " Insert white line 
 nnoremap <CR> o <Esc>
