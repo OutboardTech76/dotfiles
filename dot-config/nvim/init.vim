@@ -4,6 +4,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 end
 
+set nocompatible
 
 call plug#begin('~/.config/nvim/bundle')
   
@@ -13,105 +14,91 @@ call plug#begin('~/.config/nvim/bundle')
 "Plug 'zchee/deoplete-jedi'
 "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
-" coc and coc extensions
+" coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-json'
-"Plug 'fanheyward/coc-markdownlint'
-Plug 'neoclide/coc-yaml'
-Plug 'voldikss/coc-cmake'
-Plug 'clangd/coc-clangd'
 
 
 "---- TMux integration --------"
-Plug 'christoomey/vim-tmux-navigator'
+"Plug 'christoomey/vim-tmux-navigator'
 
 " Rainbow parentheses
 Plug 'frazrepo/vim-rainbow'
 
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+"---- NerdTree and commenter ----"
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+" Icons for nerdtree
+Plug 'ryanoasis/vim-devicons'
+"Plug 'scrooloose/syntastic'
+"--------------------------------"
 
+" Change, add or delete surrounds (parenthesis, brackets, etc)
 Plug 'tpope/vim-surround'
 
+"------ Statusline -------"
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"-------------------------"
 
+Plug 'Yggdroot/indentLine'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'Yggdroot/indentLine'
 Plug 'sbdchd/vim-run'
 
 " Python autofold
 Plug 'tmhedberg/SimpylFold'
 
 " Syntax check "
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 "---- Latex plugins -------"
 Plug 'lervag/vimtex'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-"Plug 'matze/vim-tex-fold'
+Plug 'matze/vim-tex-fold'
 "-------------------------"
 
 "---- Snippets -------"
-" Track the engine
-Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine
 Plug 'honza/vim-snippets'
 "------------------------"
 
 " Integration of git inside nvim
 Plug 'tpope/vim-fugitive'
 
+
+"----- Syntax highlight -----"
 " Collection of language packs
-"Plug 'sheerun/vim-polyglot'
-
-
-" Highlight syntax for i3 config file
-Plug 'mboughaba/i3config.vim'
-
- 
-" Highlight syntax for Dockerfile
-Plug 'ekalinin/Dockerfile.vim'
-
-" Highlight syntax for JSON files
-Plug 'elzr/vim-json'
-
-" Highlight syntax for zinit zsh
-Plug 'zinit-zsh/zinit-vim-syntax'
+Plug 'sheerun/vim-polyglot'
+"---------------------------"
 
 call plug#end()
 
-" Python fold
 
 " Enable rainbow parenthesis 
 let g:rainbow_active = 1
 
 "---- Snippets configuration -----"
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<c-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "----------------------------------"
 
 
 "" ----- ALE configuration ------------"
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8']}
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_linters = {'python': ['flake8']}
 
 "" ------------------------------------"
 
 " --- Airline configuration -----------"
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#ale#error_symbol = 'E:'
-let g:airline#extensions#ale#warning_symbol = 'W:'
+"let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#ale#error_symbol = 'E:'
+"let g:airline#extensions#ale#warning_symbol = 'W:'
 
 let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
 let g:airline#extensions#tabline#fnamemod = ':t'  " Mostrar sólo el nombre del archivo
@@ -137,19 +124,31 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 
+
+" Use tab to rotate through completion obtions
 inoremap <silent><expr> <Tab>
-			\ pumvisible() ? "\<C-n>" :
+            \ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<Tab>" :
 			\ coc#refresh()
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+ 
+" Use shift tab to use snippets
+inoremap <silent><expr> <s-tab>
+            \ pumvisible() ? coc#_select_confirm() :
+            \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+            \ <SID>check_back_space() ? "\<s-tab>" :
+            \ coc#refresh()
+" 
+"inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+let g:coc_snippet_next = '<tab>'
 
 " Use <c-space> to trigger completion
-inoremap <silent><expr> <c-space> coc#refresh() 
- 
+"inoremap <silent><expr> <c-space> coc#refresh() 
 
-
+" Coc plugins
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-pyright', 'coc-clangd']
 "-------------------------------------"
 
+ 
 filetype plugin indent on
 
 
@@ -170,27 +169,36 @@ let g:vimtex_view_method = 'zathura'
 nmap <F2> :VimtexCompile<CR>
 "----------------------------------"
 
+" indent line
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+"------------- AutoPairs --------------"
+let g:AutoPairsFlyMode = 1
+au FileType xml,html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->', '<' : '>'})
+
+"--------------------------------------"
+
+
 "------ Python syntax configuration ------"
 "let g:python_highlight_all = 1
 
-" i3 syntax configuration
+"------------ Syntax highlight -------------"
+" i3 
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
   au BufNewFile,BufRead ~/dotfiles/dot-config/i3/config set filetype=i3config
 aug end
-
-" Rofi syntax highlighting
+" Rofi 
 au BufNewFile,BufRead /*.rasi setf css
-
-" zsh syntax highlight
+" zsh 
 au BufRead,BufNewFile ~/dotfiles/zsh-config/* set filetype=zsh
-
-" .launch file syntax highlight
+" .launch file as xml
 au BufRead,BufNewFile *.launch set filetype=xml
 au BufRead,BufNewFile *.launch set syntax=xml
 au BufRead,BufNewFile *.urdf set filetype=xml
 au BufRead,BufNewFile *.urdf set syntax=xml
+"-------------------------------------------"
 
 " Run xrdb when Xresources are updated
 autocmd BufWritePost ~/.Xresources,~/dotfiles/Xresources/dot-Xresources !xrdb %
@@ -228,6 +236,7 @@ nnoremap <silent> <Leader>+ :exe "resize +5" <CR>
 nnoremap <silent> <Leader>- :exe "resize -5" <CR>
 nnoremap <silent> <Leader>> :exe "vertical resize +5" <CR>
 nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
+"------------------------------------------"
 
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1,1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0,1) : "\<C-b>"
