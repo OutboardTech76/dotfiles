@@ -17,11 +17,14 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=0
 
+" Show cursorline brighter
 set cursorline
  
 " Dont show current mode
 set noshowmode 
  
+" Enable filetype, plugins and indent
+filetype plugin indent on
  
 syntax on
 syntax enable
