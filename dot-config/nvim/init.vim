@@ -18,8 +18,10 @@ Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons' |
             \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Icons for nerdtree
 "--------------------------------"
+
+" Markdown viewer plugin
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
 " Change, add or delete surrounds (parenthesis, brackets, etc)
 Plug 'tpope/vim-surround'
