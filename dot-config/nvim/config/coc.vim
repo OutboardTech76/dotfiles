@@ -4,7 +4,7 @@
 "  
 
 " Autoinstall CoC extensions
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-pyright', 'coc-clangd']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-texlab', 'coc-clangd']
  
  
 function! s:check_back_space() abort
