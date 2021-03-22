@@ -21,3 +21,7 @@ au FileType tex nnoremap <Leader>it o\item
 " Remaps to change one word from normal to italic or bold
 au FileType tex nnoremap <Leader>wti viwdi\textit{}<Esc>hp
 au FileType tex nnoremap <Leader>wtb viwdi\textbf{}<Esc>hp
+
+" Remap j-k to gj-gk to move over visual lines
+au FileType tex nnoremap j gj
+au FileType tex nnoremap k gk
