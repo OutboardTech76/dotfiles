@@ -16,3 +16,6 @@ Use as superuser because of the target directory.
 
 ## Configuration for Arch
 Executing **myConfigArch.sh** installs everything (stow, zsh, i3, etc.), links files with stow, installs dmenu and yay (with polybar, tdrop and picom).
+
+## Configuration for Ubuntu 18.04
+Change to branch `ubuntu-18-04` and execute `.sh` files to autoinstall.
