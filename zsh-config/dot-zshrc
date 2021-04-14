@@ -130,6 +130,11 @@ zinit snippet OMZP::docker/_docker
 #zinit light laggardkernel/zsh-thefuck
  
 
+# Add .local/bin to PATH variable
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
