@@ -4,7 +4,7 @@ sudo apt-get install -y pkg-config python3 \
     xcb-proto python3-sphinx \
     python3-packaging libxcb-cursor-dev libxcb-xrm-dev libxcb-xkb-dev \
     libasound2-dev libpulse-dev libmpdclient-dev libcurlpp-dev libnl-genl-3-dev \
-    libxcb-composite0-dev libxcb-ewmh-dev python3-xcbgen \
+    libxcb-composite0-dev libxcb-ewmh-dev python-xcbgen \
     libpulse-dev libcairo2-dev libxcb1-dev libxcb-util0-dev \
     libxcb-randr0-dev libxcb-composite0-dev xcb-proto \
     libxcb-image0-dev libxcb-icccm4-dev libjsoncpp-dev

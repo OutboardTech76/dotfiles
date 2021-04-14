@@ -12,12 +12,12 @@ sudo apt-get install -y g++ libgtk-3-dev gtk-doc-tools gnutls-bin \
  
 # Clone termite and vte repos
 git clone --recursive -b v15 https://github.com/thestinger/termite.git termite
-git clone -b 0.56.2 https://github.com/thestinger/vte-ng.git vte
+git clone -b 0.56.2.a https://github.com/thestinger/vte-ng.git vte
 
 
 # Install vte
 cd vte
-NOCONFIGURE ./autogen.sh
+NOCONFIGURE=1 ./autogen.sh
 ./configure \
     --prefix=$HOME/installations/vte-static \
     --enable-static \
@@ -32,7 +32,7 @@ make install-pkgconfigDATA -j8
 
 ## Install termite
 cd $HOME/installations/termite
-export PKG_CONFIG_PATH="$HOME/installations/vte-static/lib/pkgconfig"
+export PKG_CONFIG_PATH=$HOME/installations/vte-static/lib/pkgconfig
 make -j8
 sudo make install -j8
  
