@@ -303,7 +303,7 @@ exec_always --no-startup-id $HOME/.config/i3/scripts/changeWallpaper.sh
 exec_always --no-startup-id compton 
 
 # Redirect CapsBlock key to Esc key
-exec_always setxkbmap es -option caps:escape
+exec_always setxkbmap gb -option caps:escape -variant extd
  
 
 
