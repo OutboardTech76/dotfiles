@@ -37,9 +37,8 @@ set $right l
  
 
 # Monitors names
-set $firstMonitor HDMI-1-1
-set $secondMonitor DP-1-2
-set $thirdMonitor eDP-1-1
+set $firstMonitor DVI-D-0
+set $secondMonitor HDMI-0
 
 ###################
 #      Modes      #
@@ -166,13 +165,13 @@ set $ws10 "10"
 #workspace $ws10 output $secondMonitor
 workspace $ws1 output $firstMonitor
 workspace $ws2 output $secondMonitor
-workspace $ws3 output $thirdMonitor
-workspace $ws4 output $firstMonitor
-workspace $ws5 output $secondMonitor
-workspace $ws6 output $thirdMonitor
+workspace $ws3 output $firstMonitor
+workspace $ws4 output $secondMonitor
+workspace $ws5 output $firstMonitor
+workspace $ws6 output $secondMonitor
 workspace $ws7 output $firstMonitor
 workspace $ws8 output $secondMonitor
-workspace $ws9 output $thirdMonitor
+workspace $ws9 output $firstMonitor
 workspace $ws10 output $secondMonitor
  
 # switch to workspace
