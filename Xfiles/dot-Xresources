@@ -128,8 +128,8 @@ st.powerlineFont: Hack:pixelsize=11
 
 ! Polybar settings
 polybar.wlan: wlp2s0
-polybar.eth: enp62s0u1u4
-polybar.monitor: HDMI-1
+polybar.eth: enp5s0
+polybar.monitor: HDMI-0
 polybar.monitorFallback: eDP-1-1
 
 ! Tabbed settings
