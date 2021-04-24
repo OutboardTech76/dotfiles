@@ -25,6 +25,10 @@
               "pycodestyle"
             ],
             "plugins": {
+                "pyls_mypy":
+                {
+                    "enabled": true
+                },
               "jedi_completion": {
                 "enabled": true
               },
@@ -49,10 +53,10 @@
                 "enabled": true
               },
               "pycodestyle": {
-                "enabled": false
+                "enabled": true
               },
               "pydocstyle": {
-                "enabled": false,
+                "enabled": true,
                 "match": "(?!test_).*\\.py",
                 "matchDir": "[^\\.].*"
               },
