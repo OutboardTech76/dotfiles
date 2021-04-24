@@ -19,7 +19,8 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y git xclip zsh ranger \
 	curl libxinerama-dev nodejs feh cmake-curses-gui \
     lxappearance gtk-chtheme \
-    dirmngr apt-transport-https lsb-release ca-certificates
+    dirmngr apt-transport-https lsb-release ca-certificates \
+    libxft-dev
 
 
 # Symlink dotfiles using stow
