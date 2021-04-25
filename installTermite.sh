@@ -53,3 +53,6 @@ sudo install -m 644 "$HOME/installations/vte-static/etc/profile.d/vte.sh" /usr/l
 
 sudo install -d /usr/share/terminfo/x
 sudo ln -s /usr/local/share/terminfo/x/xterm-termite /usr/share/terminfo/x/xterm-termite
+
+cd $HOME
+rm -rf installations

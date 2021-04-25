@@ -18,3 +18,6 @@ mkdir build && cd build
 cmake -DENABLE_I3=ON ..
 make -j `nproc`
 sudo make install -j `nproc`
+
+cd $HOME
+rm -rf installations

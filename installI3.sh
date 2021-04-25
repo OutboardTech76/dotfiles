@@ -15,3 +15,6 @@ mkdir -p build && cd build
 meson ..
 ninja
 sudo ninja install
+
+cd $HOME
+rm -rf installations

@@ -11,3 +11,6 @@ unzip exa.zip
 sudo mv bin/exa /usr/local/bin
 sudo mv man/* /usr/share/man/man1
 sudo mv completions/exa.zsh /usr/local/share/zsh/site-functions
+
+cd $HOME
+rm -rf installations
