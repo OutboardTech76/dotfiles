@@ -7,4 +7,6 @@ git clone https://github.com/neovim/neovim.git neovim
 cd neovim
 make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install -j8
+cd ..
+rm -rf neovim
 
