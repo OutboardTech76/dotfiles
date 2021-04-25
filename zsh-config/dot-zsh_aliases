@@ -3,9 +3,7 @@ alias ez='nvim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 # Openpose alias
-#alias openpose='cd ~/dockerTFG/testOpenpose'
-alias setCuda='source ~/dockerTFG/setCuda'
-alias clearImg='sudo rm -r images && mkdir images'
+alias setEnv='source ~/setCuda.sh && source ~/setPython.sh && source ~/setOpenpose.sh'
 
 # ROS alias  
 #alias cw='cd ~/catkin_ws'
@@ -52,6 +50,8 @@ else
     alias lt='exa --tree --level=2'  # tree
 fi
 
+# Use python as python3
+alias python='python3'
     
 
 
