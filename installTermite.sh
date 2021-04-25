@@ -26,15 +26,15 @@ NOCONFIGURE=1 ./autogen.sh
     --disable-gtk-doc \
     --disable-introspection
 
-make -j8
-make install -j8
-make install-pkgconfigDATA -j8
+make -j `nproc`
+make install -j `nproc`
+make install-pkgconfigDATA -j `nproc`
 
 ## Install termite
 cd $HOME/installations/termite
 export PKG_CONFIG_PATH=$HOME/installations/vte-static/lib/pkgconfig
-make -j8
-sudo make install -j8
+make -j `nproc`
+sudo make install -j `nproc`
  
 sudo cat << EOF > termite.wrapper
 #!/bin/bash
