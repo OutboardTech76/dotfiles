@@ -31,7 +31,7 @@ stow --dotfiles -R -v Xfiles
 
 # Install dmenu
 cd dmenu
-sudo make clean install
+sudo make clean install -j `nproc`
 cd ..
 
 
