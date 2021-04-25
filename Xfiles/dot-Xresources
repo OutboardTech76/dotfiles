@@ -127,8 +127,8 @@ st.powerlineFont: Hack:pixelsize=11
 *.Dmenu.font: NotoSansDisplay Nerd Font:size=56
 
 ! Polybar settings
-polybar.wlan: wlp2s0
-polybar.eth: enp5s0
+polybar.wlan: wlp5s0
+polybar.eth: enp6s0
 polybar.monitor: HDMI-0
 polybar.monitorFallback: eDP-1-1
 
@@ -151,7 +151,7 @@ commonApps.selBg: PINK
 powerMenu.selBg: BLUE
 layoutMenu.selBg: GREEN_MATERIAL
 scrotMenu.selBg: RED_MATERIAL
-appsMenu.font: NotoSansDisplay Nerd Font:size=25
+appsMenu.font: NotoSansDisplay Nerd Font:size=20
 appsMenu.selBg: GREEN
 appsMenu.border: 6
 via.border: 6
