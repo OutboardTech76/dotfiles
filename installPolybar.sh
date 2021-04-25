@@ -16,5 +16,5 @@ git clone --recursive https://github.com/polybar/polybar polybar
 cd polybar
 mkdir build && cd build
 cmake -DENABLE_I3=ON ..
-make -j8
-sudo make install -j8
+make -j `nproc`
+sudo make install -j `nproc`
