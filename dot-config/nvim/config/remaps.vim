@@ -2,6 +2,8 @@
 " | General remaps |
 " +----------------+
 
+"Maps leader key '\' to ','
+let mapleader=","
  
 "----- Navigate split screen ----------"
 nnoremap <silent> <c-k> :wincmd k<CR> 
@@ -23,5 +25,3 @@ nnoremap <silent> <Leader>< :exe "vertical resize -5" <CR>
 nnoremap <CR> o <Esc>
  
  
-"Maps leader key '\' to ','
-let mapleader=","
