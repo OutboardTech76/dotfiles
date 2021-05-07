@@ -124,7 +124,7 @@ st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
 *.Tabbed.tabFont: monospace:size=16
-*.Dmenu.font: NotoSansDisplay Nerd Font:size=56
+*.Dmenu.font: NotoSansDisplay Nerd Font:size=66
 
 ! Polybar settings
 polybar.wlan: wlp5s0
@@ -151,7 +151,7 @@ commonApps.selBg: PINK
 powerMenu.selBg: BLUE
 layoutMenu.selBg: GREEN_MATERIAL
 scrotMenu.selBg: RED_MATERIAL
-appsMenu.font: NotoSansDisplay Nerd Font:size=20
+appsMenu.font: NotoSansDisplay Nerd Font:size=25
 appsMenu.selBg: GREEN
 appsMenu.border: 6
 via.border: 6
