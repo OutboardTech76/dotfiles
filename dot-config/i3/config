@@ -2,14 +2,10 @@
 #      Display settings      #
 ##############################
 
-# This line tells which monitor is on the left
-# eDP-1-1 -> laptop display
 # use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
 
-# Set laptop screen as primary
-exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-2 --left-of eDP-1-1 --auto --output HDMI-1-1 --left-of DP-1-2 --auto
-#exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-1 --left-of eDP-1-1 --auto
-#exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --left-of eDP-1-1 --auto
+# Set screen positions
+exec --no-startup-id xrandr --output HDMI-0 --auto --output DVI-D-0 --left-of HDMI-0 --auto 
 
 # Load .Xresources
 exec xrdb .Xresources
@@ -133,8 +129,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Ctrl+e exec i3-msg exit
  
 # tdrop
-bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 1925 -y 36 termite
-#bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 1945 termite
+bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 36 termite
 
 #######################
 #     Workspaces      # 
