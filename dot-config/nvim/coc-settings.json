@@ -27,7 +27,8 @@
             "plugins": {
                 "pyls_mypy":
                 {
-                    "enabled": true
+                    "enabled": true,
+                    "live_mode": false
                 },
               "jedi_completion": {
                 "enabled": true
