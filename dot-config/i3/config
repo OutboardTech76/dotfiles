@@ -273,6 +273,9 @@ for_window [class="pcmanfm"] floating enable
 for_window [class="pcmanfm"] resize set 640 480
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Pcmanfm"] resize set 640 480
+
+ # Disable floating
+for_window [class="TDW.x86_64"] floating disable
  
   
 ################################
