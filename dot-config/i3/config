@@ -134,8 +134,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Ctrl+e exec i3-msg exit
  
 # tdrop
-bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 1925 -y 36 termite
-#bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 1945 termite
+#bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 1925 -y 36 termite
+bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 1945 termite
 
 #######################
 #     Workspaces      # 
