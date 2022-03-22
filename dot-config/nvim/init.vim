@@ -57,7 +57,10 @@ Plug 'sheerun/vim-polyglot'
 
 " Rainbow parentheses
 Plug 'frazrepo/vim-rainbow'
- 
+
+" Camel-snake case movement
+Plug 'bkad/CamelCaseMotion'
+
 call plug#end()
 
 for f in glob('~/.config/nvim/config/*.vim',0,1)
