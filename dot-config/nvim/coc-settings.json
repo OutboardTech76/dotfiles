@@ -17,5 +17,6 @@
       }
     },
     "clangd.path": "/home/paco/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
-    "python.linting.mypyEnabled": true
+    "python.linting.mypyEnabled": true,
+    "suggest.noselect": true
 }
