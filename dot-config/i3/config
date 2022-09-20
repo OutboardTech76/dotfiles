@@ -7,7 +7,9 @@
 # use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
 
 # Set laptop screen as primary
-exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-2 --left-of eDP-1-1 --auto --output HDMI-1-1 --left-of DP-1-2 --auto
+#exec --no-startup-id xrandr --output eDP-1-1 --auto --output HDMI-1-1 --left-of eDP-1-1 
+exec --no-startup-id xrandr --output HDMI-1-1 --auto --output eDP-1-1 --left-of HDMI-1-1 
+#exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-2 --left-of eDP-1-1 --auto --output HDMI-1-1 --left-of DP-1-2 --auto
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-1 --left-of eDP-1-1 --auto
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --left-of eDP-1-1 --auto
 
@@ -35,11 +37,23 @@ set $down j
 set $left h
 set $right l
  
+#########################
+#     Monitor names     #
+#########################
 
-# Monitors names
-set $firstMonitor HDMI-1-1
-set $secondMonitor DP-1-2
-set $thirdMonitor eDP-1-1
+# Configuration for 2 monitor + laptop
+#set $firstMonitor HDMI-1-1
+#set $secondMonitor DP-1-2
+#set $thirdMonitor eDP-1-1
+
+
+# Configuration for 1 monitor + laptop
+#set $firstMonitor HDMI-1-1
+#set $secondMonitor eDP-1-1
+ 
+# Configuration for 1 monitor + laptop
+set $firstMonitor eDP-1-1
+set $secondMonitor HDMI-1-1
 
 ###################
 #      Modes      #
@@ -157,27 +171,33 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
- 
-# Assign workspaces to different screens
+
+##################################################
+#     Assign workspaces to different screens     #
+##################################################
+
+# Configuration for 2 monitors + laptop
 #workspace $ws1 output $firstMonitor
-#workspace $ws2 output $firstMonitor
-#workspace $ws3 output $firstMonitor
+#workspace $ws2 output $secondMonitor
+#workspace $ws3 output $thirdMonitor
 #workspace $ws4 output $firstMonitor
-#workspace $ws5 output $firstMonitor
-#workspace $ws6 output $secondMonitor
-#workspace $ws7 output $secondMonitor
+#workspace $ws5 output $secondMonitor
+#workspace $ws6 output $thirdMonitor
+#workspace $ws7 output $firstMonitor
 #workspace $ws8 output $secondMonitor
-#workspace $ws9 output $secondMonitor
+#workspace $ws9 output $thirdMonitor
 #workspace $ws10 output $secondMonitor
+
+# Configuration for 1 monitor + laptop
 workspace $ws1 output $firstMonitor
-workspace $ws2 output $secondMonitor
-workspace $ws3 output $thirdMonitor
+workspace $ws2 output $firstMonitor
+workspace $ws3 output $firstMonitor
 workspace $ws4 output $firstMonitor
-workspace $ws5 output $secondMonitor
-workspace $ws6 output $thirdMonitor
-workspace $ws7 output $firstMonitor
+workspace $ws5 output $firstMonitor
+workspace $ws6 output $secondMonitor
+workspace $ws7 output $secondMonitor
 workspace $ws8 output $secondMonitor
-workspace $ws9 output $thirdMonitor
+workspace $ws9 output $secondMonitor
 workspace $ws10 output $secondMonitor
  
 # switch to workspace
