@@ -3,7 +3,7 @@
 # Install Nodejs > 10.12 
 mkdir -p $HOME/installations
 cd $HOME/installations
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash
  
 # Install stow from source
 wget -c https://ftp.gnu.org/gnu/stow/stow-latest.tar.gz -O stow.tar.gz
