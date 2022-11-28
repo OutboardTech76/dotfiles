@@ -129,7 +129,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Ctrl+e exec i3-msg exit
  
 # tdrop
-bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 36 termite
+bindsym $mod+n exec --no-startup-id tdrop -ma -w -11 -h 400 -x 6 -y 36 alacritty
+
+# change keyboard layout to extd or intl
+bindsym $mod+i exec setxkbmap gb -variant intl -option caps:escape
+bindsym $mod+e exec setxkbmap gb -variant extd -option caps:escape
 
 #######################
 #     Workspaces      # 
