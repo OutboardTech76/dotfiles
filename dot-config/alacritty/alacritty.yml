@@ -70,7 +70,7 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: Menlo
+    family: MesloLGS NF
     style: Regular
 
   # The bold font face
