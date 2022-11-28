@@ -124,13 +124,13 @@ st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
 *.Tabbed.tabFont: monospace:size=16
-*.Dmenu.font: NotoSansDisplay Nerd Font:size=66
+*.Dmenu.font: NotoSansDisplay Nerd Font:size=55
 
 ! Polybar settings
-polybar.wlan: wlp5s0
+polybar.wlan: wlp2s0
 polybar.eth: enp6s0
 polybar.monitor: HDMI-0
-polybar.monitorFallback: eDP-1-1
+polybar.monitorFallback: eDP-1
 
 ! Tabbed settings
 vimb*tabwidth: 150
