@@ -124,7 +124,7 @@ st.notoFont: NotoSansDisplay Nerd Font:pixelsize=11
 st.emojiFont: NotoEmoji Nerd Font:pixelsize=11
 st.powerlineFont: Hack:pixelsize=11
 *.Tabbed.tabFont: monospace:size=16
-*.Dmenu.font: NotoSansDisplay Nerd Font:size=54.4
+*.Dmenu.font: NotoSansDisplay Nerd Font:size=70
 
 ! Polybar settings
 polybar.wlan: wlp2s0
