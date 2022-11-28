@@ -21,7 +21,7 @@ Plug 'preservim/nerdtree' |
 "--------------------------------"
 
 " Markdown viewer plugin
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
 " Change, add or delete surrounds (parenthesis, brackets, etc)
 Plug 'tpope/vim-surround'
