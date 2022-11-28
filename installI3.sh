@@ -10,11 +10,19 @@ sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 mkdir -p $HOME/installations
 cd $HOME/installations
 git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps
-mkdir -p build && cd build
-meson ..
-ninja
-sudo ninja install
+git checkout gaps && git pull
+autoreconf --force --install
+rm -rf build
+mkdir build
+cd build
+../configure --prefix=/usr --sysconfdir=/etc
+make
+sudo make install
+#cd i3-gaps
+#mkdir -p build && cd build
+#meson ..
+#ninja
+#sudo ninja install
 
 cd $HOME
 rm -rf installations
