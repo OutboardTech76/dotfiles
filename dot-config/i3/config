@@ -5,7 +5,7 @@
 # use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
 
 # Set screen positions
-exec --no-startup-id xrandr --output HDMI-0 --auto --output DVI-D-0 --left-of HDMI-0 --auto 
+exec --no-startup-id xrandr --output DP-1 --auto --output eDP-1 --left-of DP-1 --auto 
 
 # Load .Xresources
 exec xrdb .Xresources
@@ -33,8 +33,8 @@ set $right l
  
 
 # Monitors names
-set $firstMonitor DVI-D-0
-set $secondMonitor HDMI-0
+set $firstMonitor eDP-1
+set $secondMonitor DP-1
 
 ###################
 #      Modes      #
