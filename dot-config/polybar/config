@@ -33,7 +33,7 @@ radius = 14
 fixed-center = true
 
 # Use $ xrandr -q | grep " connected" | cut -d ' ' -f1 to show connected monitors
-monitor               = ${xrdb:polybar.monitor:DP-1-1}
+monitor               = ${xrdb:polybar.monitor:DP-1}
 monitor-fallback      = ${xrdb:polybar.monitorFallback:eDP-1-1}
 monitor-strict = false
 offset-y              = 5
