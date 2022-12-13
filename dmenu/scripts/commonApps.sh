@@ -17,7 +17,7 @@ case $chosen in
         firefox &
         ;;
     $files)
-        pcmanfm &
+        nautilus &
         ;;
     $mail)
         thunderbird &
