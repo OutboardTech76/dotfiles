@@ -131,7 +131,7 @@ polybar.wlan: wlp2s0
 polybar.eth: enp62s0u1u4
 !polybar.monitor: eDP-1-1
 /*polybar.monitor: HDMI-1-1*/
-polybar.monitor: eDP-1-1
+polybar.monitor: eDP-1
 polybar.monitorFallback: eDP-1-1
 
 ! Tabbed settings
