@@ -8,9 +8,11 @@
 
 # Set laptop screen as primary
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --output HDMI-1-1 --left-of eDP-1-1 
-#exec --no-startup-id xrandr --output HDMI-1-1 --auto --output eDP-1-1 --left-of HDMI-1-1 
+# Two screens without laptop's
+#exec --no-startup-id xrandr --output HDMI-1-1 --auto --output DP-1-2 --left-of HDMI-1-1 
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --output DP-1-2 --left-of eDP-1-1 --auto --output HDMI-1-1 --left-of DP-1-2 --auto
-exec --no-startup-id xrandr --output DP-1-1 --auto --output eDP-1-1 --left-of DP-1-1 --auto
+# Lab config
+exec --no-startup-id xrandr --output DP-1-1 --auto --output eDP-1-1 --right-of DP-1-1 --auto
 #exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --left-of eDP-1-1 --auto
 
 # Load .Xresources
@@ -190,16 +192,16 @@ set $ws10 "10"
 #workspace $ws10 output $secondMonitor
 
 # Configuration for 1 monitor + laptop
-workspace $ws1 output $firstMonitor
-workspace $ws2 output $firstMonitor
-workspace $ws3 output $firstMonitor
-workspace $ws4 output $firstMonitor
-workspace $ws5 output $firstMonitor
-workspace $ws6 output $secondMonitor
-workspace $ws7 output $secondMonitor
-workspace $ws8 output $secondMonitor
-workspace $ws9 output $secondMonitor
-workspace $ws10 output $secondMonitor
+#workspace $ws1 output $firstMonitor
+#workspace $ws2 output $firstMonitor
+#workspace $ws3 output $firstMonitor
+#workspace $ws4 output $firstMonitor
+#workspace $ws5 output $firstMonitor
+#workspace $ws6 output $secondMonitor
+#workspace $ws7 output $secondMonitor
+#workspace $ws8 output $secondMonitor
+#workspace $ws9 output $secondMonitor
+#workspace $ws10 output $secondMonitor
  
 # switch to workspace
 bindsym $mod+1 workspace $ws1
