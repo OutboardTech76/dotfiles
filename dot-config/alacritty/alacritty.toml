@@ -1,0 +1,218 @@
+custom_cursor_colors = true
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#5c6370"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#fffefe"
+yellow = "#d19a66"
+
+[colors.cursor]
+cursor = "0x4d4d4c"
+text = "#abb2bf"
+
+[colors.normal]
+black = "#000000"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#abb2bf"
+yellow = "#d19a66"
+
+[colors.primary]
+background = "#282c34"
+foreground = "#e5e9f0"
+
+[colors.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 9.5
+
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS NF"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "MesloLGS NF"
+style = "Italic"
+
+[font.normal]
+family = "Menlo"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Home"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[H"
+key = "Home"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "End"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[F"
+key = "End"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Minus"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[mouse.double_click]
+threshold = 300
+
+[mouse.triple_click]
+threshold = 300
+
+[schemes.DoomOne.bright]
+black = "#5b6268"
+blue = "#3071db"
+cyan = "#46d9ff"
+green = "#4db5bd"
+magenta = "#a9a1e1"
+red = "#da8548"
+white = "#dfdfdf"
+yellow = "#ecbe7b"
+
+[schemes.DoomOne.cursor]
+cursor = "#528bff"
+text = "CellBackground"
+
+[schemes.DoomOne.normal]
+black = "#1c1f24"
+blue = "#51afef"
+cyan = "#5699af"
+green = "#98be65"
+magenta = "#c678dd"
+red = "#ff6c6b"
+white = "#202328"
+yellow = "#da8548"
+
+[schemes.DoomOne.primary]
+background = "#282c34"
+foreground = "#bbc2cf"
+
+[schemes.DoomOne.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[schemes.OneDark.bright]
+black = "#5c6370"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#fffefe"
+yellow = "#d19a66"
+
+[schemes.OneDark.cursor]
+cursor = "0x4d4d4c"
+text = "#abb2bf"
+
+[schemes.OneDark.normal]
+black = "#000000"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#abb2bf"
+yellow = "#d19a66"
+
+[schemes.OneDark.primary]
+background = "#282c34"
+foreground = "#e5e9f0"
+
+[schemes.OneDark.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
