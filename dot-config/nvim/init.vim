@@ -61,6 +61,9 @@ Plug 'frazrepo/vim-rainbow'
 " Camel-snake case movement
 Plug 'bkad/CamelCaseMotion'
 
+" Netrw to ssh connections
+Plug 'prichrd/netrw.nvim'
+
 call plug#end()
 
 for f in glob('~/.config/nvim/config/*.vim',0,1)
